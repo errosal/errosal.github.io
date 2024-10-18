@@ -10,8 +10,14 @@ permalink: /about/
   </div>
   <div style="flex:1; padding-left:20px;">
     <h2>Hi there, my name is Esteban!</h2>
-    <p> I'm thrilled to welcome you to my website! I'm a cloud solution architect and data engineer, with a passion for quantum chemistry, cooking, playing basketball, and drumming.</p>
-    <p>I believe that life is a continuous journey of self-discovery, and I strive to make the most out of every single day by learning new things, reading, spending quality time with my family, and embracing new challenges.</p>
-    <p>On this website, you'll find a glimpse into my data projects and interests, as well as some of my thoughts and insights on various topics. Thank you for stopping by, and I hope you enjoy browsing through my content!</p>
+    <p>I’m a detail-oriented aspiring Data Analyst with a passion for learning and uncovering insights from complex datasets. My ability to focus on the finer details helps me see patterns and understand the broader context behind specific scenarios.</p>
+
+    <p>I’ve had hands-on experience across different industries, starting as a Quality Control Analyst in a marketing company, where I ensured data accuracy. I later worked in healthcare with an insurance company, and now I support the warehouse logistics and e-commerce department at Warner Bros Discovery, helping streamline operations and ensuring efficient workflows.</p>
+
+    <p>I have foundational skills in Python, SQL, and algorithmic trading (MQL4/5), and I’m proficient with data visualization tools such as Power BI, Tableau, and Excel. I enjoy turning complex data into clear, actionable insights that can be used by both technical and non-technical teams.</p>
+
+    <p>My degree in International Business has given me a broad perspective on how different functions—like supply chain, operations, and customer experience—interconnect, helping me approach projects with a holistic view.</p>
+
+    <p>I’m eager to continue learning and developing my skills as I seek entry-level opportunities in data analytics, where I can contribute and grow as part of a dynamic team.</p>
   </div>
 </div>
