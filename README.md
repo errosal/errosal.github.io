@@ -4,7 +4,7 @@ This is my personal website where I showcase my portfolio and share my projects 
 
 ## Getting Started
 
-To access my portfolio website, simply visit https://clarkszw.github.io in your web browser. This will take you to the homepage where you can browse my portfolio and learn more about me.
+To access my portfolio website, simply visit https://errosal.github.io in your web browser. This will take you to the homepage where you can browse my portfolio and learn more about me.
 
 ## About Me
 
@@ -23,6 +23,6 @@ Each project includes a detailed description of what I did, the technologies I u
 
 ## Contact Me
 
-If you have any questions or would like to get in touch with me, you can reach me via email at clarkszw@gmail.com or through the contact form on my website.
+If you have any questions or would like to get in touch with me, you can reach me via email at esteban.rosal.1@gmail.com or through the contact form on my website.
 
 Thank you for visiting my portfolio website, and I look forward to hearing from you!

@@ -16,14 +16,14 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale: "en-US"
-title: "Clark SZW"
+title: "Esteban Rosal"
 title_separator: "-"
 subtitle: "Connecting the dots of data can reveal the truth behind the illusions of reality."
-name: "Zhiwen Shi(Clark)"
+name: "Esteban R. Rosal
 description: "A place about Shi Zhiwen and his work."
-url: "https://clarkszw.github.io"
+url: "https://errosal.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
-repository: "Clarkszw/clarkszw.github.io"
+repository: "https://github.com/errosal/errosal.github.io"
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo: # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title: # overrides the website title displayed in the masthead, use " " for no title
@@ -93,8 +93,8 @@ social:
   type: Person # or Organization (defaults to Person)
   name: # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
-    - "https://www.linkedin.com/in/zhiwenshi"
-    - "https://github.com/Clarkszw"
+    - "https://www.linkedin.com/in/esteban-rosal-837a62wer/"
+    - "https://github.com/errosal"
 
 # Analytics
 analytics:
@@ -105,18 +105,18 @@ analytics:
 
 # Site Author
 author:
-  name: "Clark Zhiwen Shi"
+  name: "Esteban Rosal"
   avatar: "./assets/images/profile.jpg"
   bio: "A data scientist that does not know basketball is not a good chemist."
-  location: "Copenhagen, Denmark"
+  location: "Hackensack, New Jersey"
   email:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:clarkszw@gmail.com"
+      url: "mailto:esteban.rosal.1@gmail.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://clarkszw.github.io"
+      url: "https://errosal.github.io"
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
     # url: "https://twitter.com/"
@@ -125,10 +125,10 @@ author:
     # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/clarkszw"
+      url: "https://github.com/errosal"
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/zhiwenshi/"
+      url: "https://www.linkedin.com/in/esteban-rosal-837a62wer/"
     # - label: "Instagram"
     #   icon: "fab fa-fw fa-instagram"
     # url: "https://instagram.com/"
@@ -144,7 +144,7 @@ footer:
     # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/clarkszw"
+      url: "https://github.com/errosal"
     # - label: "GitLab"
     #   icon: "fab fa-fw fa-gitlab"
     # url:
@@ -156,7 +156,7 @@ footer:
     # url:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/zhiwenshi/"
+      url: "https://www.linkedin.com/in/esteban-rosal-837a62wer/"
 
 # Reading Files
 include:
