@@ -1,0 +1,499 @@
+---
+title: "Conditional Probability: Building a Spam Filter with Naive Bayes"
+output: html_document
+date: 2022-10-22
+author: Zhiwen Shi
+---
+
+```{r, warning = FALSE, message = FALSE }
+library(tidyverse)
+set.seed(1)
+options(dplyr.summarise.inform = FALSE)
+```
+
+# Introduction
+
+This analysis is an application of what we've learned in Conditional Probability course. Using a dataset of pre-labeled SMS messages, we'll create a spam filter using the Naive Bayes algorithm.
+
+```{r}
+# Bring in the dataset
+spam <- read_tsv("spam.txt")
+```
+
+The `spam` dataset has `r nrow(spam)` rows and `r ncol(spam)` columns. Of these messages, `r mean(spam$label == "ham") * 100`% of them are not classified as spam, the rest are spam.
+
+Our project is a machine learning problem, specifically a classification problem. The goal of our project is to maximize the predictive ability of our algorithm. This is in contrast to what we would usually do in something like hypothesis testing, where the goal is proper statistical inference.
+
+We want to optimize our algorithm's ability to correctly classify messages that it hasn't seen before. We'll want to create a process by which we can tweak aspects of our algorithm to see what produces the best predictions. The first step we need to take towards this process is divide up our `spam` data into 3 distinct datasets.
+
+* A training set, which we'll use to "train" the computer how to classify messages.
+* A cross-validation set, which we'll use to assess how different choices of alpha affect the prediction accuracy
+* A test set, which we'll use to test how good the spam filter is with classifying new messages.
+
+We're going to keep 80% of our dataset for training, 10% for cross-validation and 10% for testing. We typically want to keep as much data as possible for training. The original dataset has `r nrow(spam)` messages, which means that:
+
+* The training set will have `r nrow(spam)*0.8` messages.
+* The cross-validation and test sets will have `r nrow(spam)*0.1` and `r nrow(spam)*0.1` messages respectively.
+
+We expose the algorithm to examples of spam and ham through the training set. In other words, we develop all of the conditional probabilities and vocabulary from the training set. After this, we need to choose an alpha value. The cross-validation set will help us choose the best one. Throughout this whole process, we have a set of data that the algorithm never sees: the test set. We hope to maximize the prediction accuracy in the cross-validation set since it is a proxy for how well it will perform in the test set.
+
+
+# Training, Cross-validation and Test Sets
+
+
+```{r}
+
+# Calculate some helper values to split the dataset
+n <- nrow(spam)
+n_training <- 0.8 * n
+n_cv <- 0.1 * n
+n_test <- 0.1 * n
+
+# Create the random indices for training set
+train_indices <- sample(1:n, size = n_training, replace = FALSE)
+
+# Get indices not used by the training set
+remaining_indices <- setdiff(1:n, train_indices)
+
+# Remaining indices are already randomized, just allocate correctly
+cv_indices <- remaining_indices[1:(length(remaining_indices)/2)]
+test_indices <- remaining_indices[((length(remaining_indices)/2) + 1):length(remaining_indices)]
+
+# Use the indices to create each of the datasets
+spam_train <- spam[train_indices,]
+spam_cv <- spam[cv_indices,]
+spam_test <- spam[test_indices,]
+
+# Sanity check: are the ratios of ham to spam relatively constant?
+print(mean(spam_train$label == "ham"))
+print(mean(spam_cv$label == "ham"))
+print(mean(spam_test$label == "ham"))
+```
+
+The number of ham messages in each dataset is relatively close to each other in each dataset. This is just to make sure that no dataset is entirely just "ham", which ruins the point of spam detection.
+
+
+### Data Cleaning
+
+To calculate all these probabilities, we'll first need to clean the data and convert it into a format that makes it easier to get the information we need. 
+
+1. For each message, convert every letter in the messages to lower case.
+2. Use the str_squish() function to reduce unnecessary white space in the messages.
+3. Remove all the punctuation from the SMS column.
+4. There are special Unicode characters that also need to be removed from the strings.
+
+
+```{r}
+tidy_train <- spam_train %>% 
+  mutate(
+      sms = str_to_lower(sms) %>%
+            str_squish() %>% # white space
+            str_replace_all("[[:punct:]]", "") %>% # punctuation
+            str_replace_all("[\u0094\u0092\u0096\n\t]", "") %>% # Unicode characters
+            str_replace_all("[[:digit:]]", "") # digit
+  )
+```
+
+
+### Creating the vocabulary
+
+The next step we have to take is to create the vocabulary from the training set. Now that the messages in the training set have been cleaned, let's create a list with all of the unique words that occur in it.
+
+```{r}
+vocabulary <- NULL
+messages <- tidy_train$sms
+
+# Iterate through the messages and add to the vocabulary
+for (m in messages) {
+  words <- str_split(m, " ")[[1]] # output is a list, take the first vector
+  vocabulary <- c(vocabulary, words)
+}
+
+# Remove duplicates from the vocabulary 
+vocabulary <- unique(vocabulary)
+```
+
+
+### Calculating Constants and Parameters
+
+Now that we're done with data cleaning and the vocabulary, we can start calculating the probabilities needed to start classification. Recall that the Naive Bayes algorithm needs to know the probability values of the two equations below to be able to classify new messages:
+
+$$
+P(\text{Spam} | w_1, w_2, \ldots, w_n) \propto P(\text{Spam}) \times \prod_{i=1}^{n} P(w_i|\text{Spam})
+$$
+
+$$
+P(\text{Ham} | w_1, w_2, \ldots, w_n) \propto P(\text{Ham}) \times \prod_{i=1}^{n} P(w_i|\text{Ham})
+$$
+
+To calculate $P(w_i|\text{Spam})$ and $P(w_i|\text{Ham})$ inside the formulas above, recall that we need to use these equations:
+
+$$
+P(w_i|\text{Spam}) = \frac{N_{w_i|\text{Spam}} + \alpha}{N_{\text{Spam}} + \alpha \times N_{Vocabulary}}
+$$
+
+$$
+P(w_i|\text{Ham}) = \frac{N_{w_i|\text{Ham}} + \alpha}{N_{\text{Ham}} + \alpha \times N_{Vocabulary}}
+$$
+
+Some of the terms in the four equations above will have the same value for every new message. As a start, let's first calculate:
+
+$N_{\text{Spam}}$, $N_{\text{Ham}}$ and $N_{\text{Vocabulary}}$
+
+For now, we'll also use smoothing parameter of $\alpha = 1$ We don't know right now if this particular value for $\alpha$ maximizes the prediction accuracy, so we'll need to come back to this later.
+
+
+```{r}
+# Isolate the spam and ham messages
+spam_messages <- tidy_train %>% 
+  filter(label == "spam") %>% 
+  pull(sms)
+
+ham_messages <- tidy_train %>% 
+  filter(label == "ham") %>% 
+  pull(sms)
+
+# Isolate the vocabulary in spam and ham messages
+
+spam_vocab <- NULL
+for (sm in spam_messages) {
+  words <- str_split(sm, " ")[[1]]
+  spam_vocab  <- c(spam_vocab, words)
+}
+
+ham_vocab <- NULL
+for (hm in ham_messages) {
+  words <- str_split(hm, " ")[[1]]
+  ham_vocab <- c(ham_vocab, words)
+}
+
+# Calculate some important parameters from the vocab
+n_spam <- length(spam_vocab)
+n_ham <- length(ham_vocab)
+n_vocabulary <- length(vocabulary)
+
+```
+
+### Calculating Probability Parameters
+
+With each of these counts:
+
+$N_{\text{Spam}}$, $N_{\text{Ham}}$ and $N_{\text{Vocabulary}}$
+
+we'll be able to calculate two important probabilities:
+
+$P_{\text{Spam}}$, $P_{\text{Ham}}$
+
+which represent the marginal probabilities of a message being spam or ham in the training set.
+
+Each of these terms are constants in our equations for every new message. This is why it's useful to calculate them beforehand.
+
+```{r}
+# New vectorized approach to a calculating ham and spam probabilities
+# Marginal probability of a training message being spam or ham
+p_spam <- mean(tidy_train$label == "spam")
+p_ham <- mean(tidy_train$label == "ham")
+```
+
+Conversely, $P(w_i|\text{Spam})$ and $P(w_i|\text{Ham})$ will depend on the word. For instance, $P(\text{"secret"}|\text{Spam})$ will probably be different from $P(\text{"cousin"}|\text{Spam})$. 
+Although $P(w_i|\text{Spam})$ and $P(w_i|\text{Ham})$ will vary from word to word, the probability for each individual word will be constant for every message.
+
+For each word in our dataset, we'll have two probabilities. So, if we have $n$ words, we'll need to calculate $2n$ probabilities: $P(w_i|\text{Spam})$ and $P(w_i|\text{Ham})$
+
+In more technical language, the probability values that $P(w_i|\text{Spam})$ and $P(w_i|\text{Ham})$ take are called parameters. We are using the training set to estimate these values since we don't know their "true" value. These values will change depending on what we have as our training set, so our hope is that a large enough training set will be representative of all the spam and ham messages in the world.
+
+The calculation of all these constants and probabilities before we even start classifying new messages makes the Naive Bayes algorithm very fast (in terms of the amount of computation needed). When a new message comes in, most of the needed computations are already done, so the algorithm merely needs to do some multiplication to classify the new message.
+
+Before we can calculate each of these probabilities, we need to calculate each of the conditional word counts. These counts won't change since we're referencing the same training set, but later in the project, we'll change the value of $\alpha$ to see which one works best.
+
+
+```{r use double map() for calculation}
+
+# Break up the spam and ham counting into their own tibbles
+spam_counts <- tibble(word = spam_vocab) %>% 
+  mutate(
+    
+    # Calculate the number of times a word appears in spam
+    spam_count = map_int(word, function(w) {
+      
+      # Count how many times each word appears in all spam messsages, then sum
+      map_int(spam_messages, function(sm) {
+        (str_split(sm, " ")[[1]] == w) %>% sum # for a single message
+      }) %>% 
+        sum # then summing over all messages
+      
+    })
+  )
+
+# There are many words in the ham vocabulary so this will take a while!
+# Run this code and distract yourself while the counts are calculated
+ham_counts <- tibble(word = ham_vocab) %>% 
+  mutate(
+    
+    # Calculate the number of times a word appears in ham
+    ham_count = map_int(word, function(w) {
+      
+      # Count how many times each word appears in all ham messsages, then sum
+      map_int(ham_messages, function(hm) {
+        (str_split(hm, " ")[[1]] == w) %>% sum 
+      }) %>% 
+        sum
+      
+    })
+  )
+```
+
+```{R}
+# Join these tibbles together
+word_counts <- full_join(spam_counts, ham_counts, by = "word") %>% 
+  mutate(
+    # Fill in zeroes where there are missing values
+    spam_count = ifelse(is.na(spam_count), 0, spam_count),
+    ham_count = ifelse(is.na(ham_count), 0, ham_count)
+  )
+```
+
+### Use loop to calculate the word count
+
+Here are the comparing tests in a smaller sample for counting the words by two different methods, loop and map().
+
+```{r test doubel map()}
+test_vocab <- c('baba','mama')
+test_message <- c('baba ai mama',
+                  'baba ai haizi',
+                  'mama lai la',
+                  'wo ai baba'
+                 )
+
+# use map() to count the words in the messages
+test_counts <- tibble(word = test_vocab) %>% 
+  mutate(
+    
+    # Calculate the number of times a word appears in vocab
+    test_count = map_int(word, function(w) {
+      
+      # Count how many times each word appears in all  messages, then sum
+      map_int(test_message, function(hm) {
+        (str_split(hm, " ")[[1]] == w) %>% sum 
+      }) %>% 
+        sum
+    })
+  )
+test_counts
+```
+```{r test loop}
+
+# use loop to count the words in the messages
+count_message <- function (word) {
+    test_count <- 0
+  for (n in test_message){
+    test_count = sum(str_split(n," ")[[1]] == word) + test_count
+  }
+    return(test_count)
+}
+
+test_counts_2 <- tibble(word = test_vocab) %>%
+  mutate (test_count = unlist(map(word,count_message)))
+
+test_counts_2
+```
+
+```{r}
+head(ham_counts)
+```
+
+### Classifying New Messages
+
+Now that we've have all the constants and word counts we need, we can finally create the probabilities needed to run the spam filter! We want something that takes in a new message and outputs a classification for the message. This particular format means that a function would probably be the best approach. Once we have the function, we can `map()` it over the cross-validation and test sets to see how it actually performs.
+
+Let's now calculate all the parameters using the equations below:
+
+$$
+P(w_i|\text{Spam}) = \frac{N_{w_i|\text{Spam}} + \alpha}{N_{\text{Spam}} + \alpha \cdot N_{\text{Vocabulary}}}
+$$
+
+$$
+P(w_i|\text{Ham}) = \frac{N_{w_i|\text{Ham}} + \alpha}{N_{\text{Ham}} + \alpha \cdot N_{\text{Vocabulary}}}
+$$
+To reiterate on the notation again:
+
+* $N_{w_i|\text{Spam}}$is equal to the number of times the word $wi$ occurs in all the spam messages
+
+* $N_{w_i|\text{Ham}}$is equal to the number of times the word $wi$ occurs in all the ham messages.
+
+There are many ways to approach this, but we'll recommend using the word counts to hold all of the conditional probabilities for each $wi$ for both the spam and ham words. We like this approach for its convenience. At the end of all the calculation, we should be able to reference each word in the vocabulary for a probability.
+
+Thinking in terms of the programming specifics, we want the function to:
+
+Take in a new message as an input, $w_1, w_2, \ldots, w_n$
+Then calculate $P(\text{Spam}|w_1, w_2, \ldots, w_n)$ and $P(\text{Ham}|w_1, w_2, \ldots, w_n)$ using the assumption of conditional independence
+Finally, compare the values of $P(\text{Spam}|w_1, w_2, \ldots, w_n)$ and $P(\text{Ham}|w_1, w_2, \ldots, w_n)$ to do the classification.
+
+Note that some new messages will contain words that are not part of the vocabulary. Recall from the previous lesson that we simply ignore these words when we're calculating the probabilities. You'll need to take this into account when you're writing your classification function.
+
+
+```{r}
+# This is the updated function using the vectorized approach to calculate
+# the spam and ham probabilities
+# Create a function that makes it easy to classify a tibble of messages
+# we add an alpha argument to make it easy to recalculate probabilities 
+# based on this alpha (default to 1)
+classify <- function(message, alpha = 1) {
+  
+  # Splitting and cleaning the new message
+  # This is the same cleaning procedure used on the training messages
+  clean_message <- str_to_lower(message) %>% 
+    str_squish() %>% 
+      str_replace_all("[[:punct:]]", "") %>% 
+      str_replace_all("[\u0094\u0092\u0096\n\t]", "") %>% # Unicode characters
+      str_replace_all("[[:digit:]]", "")
+  
+  words <- str_split(clean_message, " ")[[1]]
+  
+  # There is a possibility that there will be words that don't appear
+  # in the training vocabulary, so this must be accounted for
+  
+  # Find the words that aren't present in the training
+  new_words <- setdiff(vocabulary, words)
+  
+  # Add them to the word_counts 
+  new_word_probs <- tibble(
+    word = new_words,
+    spam_prob = 1,
+    ham_prob = 1
+  )
+  # Filter down the probabilities to the words present 
+  # use group by to multiply everything together
+  present_probs <- word_counts %>% 
+    filter(word %in% words) %>% 
+    mutate(
+      # Calculate the probabilities from the counts
+      spam_prob = (spam_count + alpha) / (n_spam + alpha * n_vocabulary),
+      ham_prob = (ham_count + alpha) / (n_ham + alpha * n_vocabulary)
+    ) %>% 
+    bind_rows(new_word_probs) %>% 
+    pivot_longer(
+      cols = c("spam_prob", "ham_prob"),
+      names_to = "label",
+      values_to = "prob"
+    ) %>% 
+    group_by(label) %>% 
+    summarize(
+      wi_prob = prod(prob) # prod is like sum, but with multiplication
+    )
+ 
+  # Calculate the conditional probabilities
+  p_spam_given_message <- p_spam * (present_probs %>% filter(label == "spam_prob") %>% pull(wi_prob))
+  p_ham_given_message <- p_ham * (present_probs %>% filter(label == "ham_prob") %>% pull(wi_prob))
+  
+  # Classify the message based on the probability
+  ifelse(p_spam_given_message >= p_ham_given_message, "spam", "ham")
+}
+```
+
+```{r}
+# Use the classify function to classify the messages in the training set
+# This takes advantage of vectorization
+final_train <- tidy_train %>% 
+  mutate(
+    prediction = map_chr(sms, function(m) { classify(m) })
+  ) 
+```
+
+### Calculating Accuracy
+
+Now we have the predicted values, we can compare them with the actual values to measure how well our spam filter classifies messages. To make the measurement, we'll use accuracy as a metric:
+
+$$
+\text{Accuracy} = \frac{\text{number of correctly classified messages}}{\text{total number of classified messages}}
+$$
+One good way of quickly tabulating the results of the classifier is to convert it into a confusion matrix. A confusion matrix shows how the predictions matches up against the actual labels. The `table()` function could be useful here.
+
+```{r}
+# Results of classification on training
+confusion <- table(final_train$label, final_train$prediction)
+accuracy <- (confusion[1,1] + confusion[2,2]) / nrow(final_train)
+accuracy
+```
+```{r}
+# Another way using sum()
+accuracy_2 <- sum(final_train$label == final_train$prediction)/nrow(final_train)
+accuracy
+```
+
+
+The Naive Bayes Classifier achieves an accuracy of about 89%. Pretty good! Let's see how well it works on messages that it has never seen before.
+
+
+### Hyperparameter Tuning
+
+we arbitrarily chose $\alpha=1$ to perform our smoothing. In reality, we don't know if this value of $\alpha$ produces the best predictions. $\alpha$ represents a parameter that we can tune, or change, to try to increase our prediction accuracy. In machine learning parlance, we refer to these types of parameters as hyperparameters.
+
+Parameters $P(w_i|\text{Spam})$ are derived from the training data, but $\alpha$ isn't. It's something that we set before we do any of the classification or training. That's why it's called a hyperparameter.
+
+In order to assess the best $\alpha$ value to use, we need to see how different values of $\alpha$ affect prediction accuracy. We have a problem though: we can't use the training set to do this since it's what we use to derive the other parameters. To truly get an honest estimate of how different values of $\alpha$ affect accuracy, we need to see how the classifier fares with a dataset it hasn't seen before. Thankfully, we've set aside something just for this purpose: the cross-validation set. We don't want to assess the classifier on the test set until the very end of our tuning, or else we risk making our classifier overly optimistic.
+
+The idea behind hyperparameter tuning is similar to what we've done so far. All of the classifications we've done have been under the assumption that $\alpha=1$. What we need to do now is to repeat this process multiple times using different values of $\alpha$. For each $\alpha$, we'll assess the classifier's accuracy on the cross-validation set. We'll choose the $\alpha$ that maximizes the prediction accuracy in the cross-validation set.
+
+For our hyperparameter tuning, we'll look at a range of $\alpha$ from 0.1 to 1.
+
+```{r}
+alpha_grid <- seq(0.05, 1, by = 0.05)
+cv_accuracy <- NULL
+for (alpha in alpha_grid) {
+  
+  # Recalculate probabilities based on new alpha
+  cv_probs <- word_counts %>% 
+    mutate(
+      # Calculate the probabilities from the counts based on new alpha
+      spam_prob = (spam_count + alpha / (n_spam + alpha * n_vocabulary)),
+      ham_prob = (ham_count + alpha) / (n_ham + alpha * n_vocabulary)
+    )
+  
+  # Predict the classification of each message in cross validation
+  cv <- spam_cv %>% 
+    mutate(
+      prediction = map_chr(sms, function(m) { classify(m, alpha = alpha) })
+    ) 
+  
+  # Assess the accuracy of the classifier on cross-validation set
+  confusion <- table(cv$label, cv$prediction)
+  acc <- (confusion[1,1] + confusion[2,2]) / nrow(cv)
+  cv_accuracy <- c(cv_accuracy, acc)
+}
+# Check out what the best alpha value is
+tibble(
+  alpha = alpha_grid,
+  accuracy = cv_accuracy
+)
+```
+
+Judging from the cross-validation set, higher $\alpha$ values cause the accuracy to decrease. We'll go with $\alpha = 0.1$ since it produces the highest cross-validation prediction accuracy.
+
+# Test Set Performance
+
+In the culmination of our project, we created our spam filter. We took some extra care to figure out an optimal value for the smoothing parameter. After all of our hard work, it's finally time to see how well the classifier fares with the test set.
+
+```{r}
+# Reestablishing the proper parameters
+optimal_alpha <- 0.1
+# Using optimal alpha with training parameters, perform final predictions
+spam_test <- spam_test %>% 
+  mutate(
+    prediction = map_chr(sms, function(m) { classify(m, alpha = optimal_alpha)} )
+    )
+  
+confusion <- table(spam_test$label, spam_test$prediction)
+test_accuracy <- (confusion[1,1] + confusion[2,2]) / nrow(spam_test)
+test_accuracy
+```
+
+We've achieved an accuracy of 93% in the test set. Not bad!
+
+# Next Steps
+
+* Some words in the vocabulary really don't make any sense. See what happens when you more finely control the resulting vocabulary from the training set.
+* Examine some of the misclassified messages and try to look for some patterns in why they might have been classified incorrectly
+* Try creating multiple classifiers and implementing a majority vote system for classification
+
+

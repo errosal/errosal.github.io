@@ -1,0 +1,10 @@
+---
+title: "Splash"
+output: html_document
+---
+
+# Your New Data Analyst
+
+Enthusiastic and detail-oriented professional with demonstrated ability to drive projects to consistently meet key program deliverables and increase profitability. Proficient in assessing business needs, applying process improvements, change management, data management, reporting standardization and improved user experience in the areas of global operations, sales and marketing.
+
+In the top tabs, you can find my resume and projects that demonstrate my skills in data analysis, among the other, data cleaning, data processing, data visualization and reporting.

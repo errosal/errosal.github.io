@@ -1,0 +1,50 @@
+---
+title: "Covid19_Project"
+author: "Zhiwen Shi"
+output: html_document
+date: "2022-10-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+First Data analysis project in R.
+
+Which countries have had the highest number of positive cases against the number of tests?
+
+
+
+```{r main}
+library(tidyverse)
+covid19 <- read.csv('covid19.csv')
+covid19_all <- filter(covid19,Province_State == 'All States')
+highest_case_positive_rate <- covid19_all %>%
+                group_by(Country_Region) %>% 
+                summarize(sum_positive = sum(daily_positive),
+                          sum_test= sum(daily_tested),
+                          rate = sum_positive/sum_test
+                          )
+sorted <- arrange (highest_case_positive_rate,-rate)
+top3 <- head(sorted, 3)
+question <- "Which countries have had the highest number of positive cases against the number of tests?"
+answer <- top3 %>% pull(Country_Region)
+#top3_name <- top3 %>% pull(Country_Region)
+#answer <- c("Positive against tested Top3" = top3_name)
+covid_analysis_list <- list(question, answer, highest_case_positive_rate)
+covid_analysis_list[2]
+```
+
+## Positive top rate
+
+
+```{r plot, echo=FALSE}
+library(ggplot2)
+qplot(data=top3,
+      x=Country_Region,
+      y=rate)
+```
+
+

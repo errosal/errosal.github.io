@@ -1,0 +1,98 @@
+---
+title: "Book Review"
+output: html_document
+date: "2022-10-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+Introduction: What motivated our analysis? What kind of data do we have? What is the main question we're trying to answer?
+
+To find the best book we are selling from sales history.
+
+Findings: What did we need to do to the data to do our analysis? What things are we calculating to answer our main question?
+
+Cleaning and processing the data to keep the consistency and valuable data. Summarize the total sales of each book to find out the best seller.
+
+Conclusion: What is the answer to our main question? Was there anything that we feel limits our analysis? What should the reader do with our findings?
+Here will show the some data processing work and eventually provide the most profitable books table.
+
+The best book is: Secrets Of R For Advanced Students.
+
+The dimensions of the analysis to the best book are limited. We can further analyse the effect of good reviews to the sales, sales location, price strategy to improve the sales.
+
+
+
+```{r main}
+library(tidyverse)
+data <- read_csv('book_reviews.csv')
+colnames <- colnames(data)
+filter_data <- data
+# filter(!(is.na(review)))
+
+ for (name in colnames){
+#   print (name)
+  filter_data <- filter_data %>%
+   filter(!(is.na(filter_data[name])))
+#   print (is.na(name))
+#   print (typeof(data[[name]]))
+ }
+# filter_data2 <- filter_data %>%
+#   filter(!(is.na(book)))
+# filter_data2 <- filter_data2 %>%
+#   filter(!(is.na(review)))
+# filter_data2 <- filter_data2 %>%
+#   filter(!(is.na(state)))
+# filter_data2 <- filter_data2 %>%
+#   filter(!(is.na(price)))
+
+rename_state <- filter_data %>%
+  mutate(consistent_state = case_when(
+    state == 'CA' ~ 'California',
+    state == 'TX' ~ 'Texas',
+    state == 'NY' ~ 'New York',
+    state == 'FL' ~ 'Florida',
+    TRUE ~ state
+  ))
+
+score_review <- rename_state %>%
+  mutate(review_num = case_when(
+    review == 'Poor' ~ 1,
+    review == 'Fair' ~ 2,
+    review == 'Good' ~ 3,
+    review == 'Great' ~ 4,
+    TRUE ~ 5
+  ))
+
+is_high_review <- score_review %>%
+  mutate(is_high_review = if_else(review_num >= 4, TRUE, FALSE)
+  )
+
+most_profitable <- data %>% # generate most revenue
+  group_by(book) %>%
+  summarise(profit = sum(price))
+    
+```
+
+
+
+
+```{r table}
+library(knitr)
+kable(arrange(most_profitable, -profit), caption="Best books")
+```
+
+
+## Including Plots
+
+
+```{r , echo=FALSE}
+qplot (x = book,
+       y = profit,
+       data = most_profitable)
+```
+

@@ -1,0 +1,174 @@
+---
+title: "Forest Fires"
+author: "Zhiwen Shi"
+date: "2022-10-12"
+output: html_document
+---
+
+```{r library}
+library(tidyverse)
+forest_fires <- read_csv("forestfires.csv")
+```
+
+# The Importance of Forest Fire Data
+
+```{r column name}
+colnames(forest_fires)
+```
+
+We know that the columns correspond to the following information:
+
+* **X**: X-axis spatial coordinate within the Montesinho park map: 1 to 9 
+* **Y**: Y-axis spatial coordinate within the Montesinho park map: 2 to 9 
+* **month**: Month of the year: 'jan' to 'dec' 
+* **day**: Day of the week: 'mon' to 'sun' 
+* **FFMC**: Fine Fuel Moisture Code index from the FWI system: 18.7 to 96.20 
+* **DMC**: Duff Moisture Code index from the FWI system: 1.1 to 291.3 
+* **DC**: Drought Code index from the FWI system: 7.9 to 860.6 
+* **ISI**: Initial Spread Index from the FWI system: 0.0 to 56.10 
+* **temp**: Temperature in Celsius degrees: 2.2 to 33.30 
+* **RH**: Relative humidity in percentage: 15.0 to 100 
+* **wind**: Wind speed in km/h: 0.40 to 9.40 
+* **rain**: Outside rain in mm/m2 : 0.0 to 6.4 
+* **area**: The burned area of the forest (in ha): 0.00 to 1090.84 0.84
+
+The acronym FWI stands for "fire weather index", a method used by scientists to quantify risk factors for forest fires.
+
+A single row corresponds to the location of a fire and some characteristics about the fire itself. Higher water presence is typically asssociated with less fire spread, so we might expect the water-related variables (`DMC` and `rain`) to be related with `area`.
+
+# Data Processing
+
+`month` and `day` are character vartiables, but we know that there is an inherent order to them. We'll convert these variables into factors so that they'll be sorted into the correct order when we plot them.
+
+```{r}
+forest_fires %>% pull(month) %>% unique
+```
+
+```{r}
+forest_fires %>% pull(day) %>% unique
+```
+
+```{r}
+month_order <-  c("jan", "feb", "mar", "apr",
+                  "may", "jun", "jul", "aug",
+                  "sep", "oct", "nov", "dec")
+week_order <- c("mon", "tue", "wed", "thu", "fri", "sat", "sun")
+forest_fires <- forest_fires %>%
+  mutate(month = factor(month, levels = month_order),
+         day = factor(day, levels = week_order)
+  )
+```
+
+# When Do Most Forest Fires Occur?
+
+We need to create a summary tibble that counts the number of fires that appears in each month. Then, we'll be able to use this tibble in a visualization. We can consider `month` and `day` to be different grouping variables, so our code to produce the tibbles and plots will look similar.
+
+## Month Level
+
+```{r}
+month_occur <- forest_fires%>%
+  group_by(month)%>%
+#  summarise(sum_occur = n())
+   summarise(sum_occur = length(rain))
+
+month_occur %>%
+  ggplot(aes(x = month, y = sum_occur)) +
+  geom_col()+
+  labs (
+    title = 'sum of the fire by month',
+    x = 'month',
+    y = 'total fire'
+  )
+```
+
+```{r}
+week_occur <- forest_fires%>%
+  group_by(day)%>%
+  summarise(sum_occur = n())
+
+week_occur %>%
+  ggplot(aes(x = day, y = sum_occur)) +
+  geom_col()+
+  labs (
+    title = 'sum of the fire by weekday',
+    x = 'weekday',
+    y = 'total fire'
+  )
+```
+
+From our graphs, we saw that August and September see more forest fires than other months. It also looks as though the weekend days (Friday, Saturday, and Sunday) have more forest fires than days in the middle of the week.
+
+# Plotting Other Variables Against Time 
+
+```{r}
+forest_fires_long <- forest_fires%>%
+  pivot_longer(
+    cols = c("FFMC", "DMC", "DC", "ISI", "temp", "RH",  "wind", "rain" ),
+    names_to = "var_col",
+    values_to = "value"
+  )
+
+forest_fires_long %>%
+  ggplot(aes(x = month, y = value))+
+  geom_boxplot()+
+  facet_wrap(vars(var_col),scales = "free_y")
+
+```
+```{r echo=FALSE}
+# forest_fires_long <- forest_fires%>%
+#   pivot_longer(
+#     cols = c("FFMC", "DMC", "DC", "ISI", "temp", "RH",  "wind", "rain" ),
+#     names_to = "var_col",
+#     values_to = "value"
+#   )
+
+# forest_fires_long %>%
+#   ggplot(aes(x = month, y = value))+
+#   geom_boxplot()+
+#   facet_grid(
+#     rows = vars(var_col),
+#     cols = vars(day),
+#     scales = "free_y")
+```
+# Examining Forest Fire Severity
+
+```{r}
+forest_fires_long %>% 
+  ggplot(aes(x = value, y = area))+
+  geom_point()+
+  facet_wrap(vars(var_col), scales = "free_x")+
+  labs(
+    title = "Relationships between other variables and area burned",
+    x = "Value of the variable",
+    y = "Area burned (hectare)"
+  )+
+  theme(
+    panel.background = element_rect(fill = "white")
+  )
+
+```
+# Outlier Problems
+
+It seems that there are two rows where `area` that still hurt the scale of the visualization. Let's make a similar visualization that excludes these observations so that we can better see how each variable relates to `area`.
+
+```{r}
+forest_fires_long %>% 
+  filter( area <250 ) %>%
+  ggplot(aes(x = value, y = area))+
+  geom_point()+
+  facet_wrap(vars(var_col), scales = 'free_x')+
+  labs(
+    title = "Relationships between other varibles and area < 250",
+    x = 'the value of the varible',
+    y = 'area burned in hectare'
+  )
+
+
+```
+
+
+```{r echo=FALSE}
+
+```
+
+

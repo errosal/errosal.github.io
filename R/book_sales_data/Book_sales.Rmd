@@ -1,0 +1,103 @@
+---
+title: "booksales"
+author: "Zhiwen Shi"
+date: "2022-10-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Book Sales Data
+
+
+
+```{r main}
+library(tidyverse)
+data <- read.csv("sales2019.csv")
+
+#colnames(data)
+#glimpse(data)
+rm_review <- data%>%
+  filter(!(is.na(user_submitted_review)))
+# na_review <- data%>%
+#   filter(is.na(user_submitted_review))
+# num_na <- length(na_review[["user_submitted_review"]])
+
+rm_purchase <- data%>%
+  filter(!(is.na(total_purchased)))
+avg_purchase <- as.integer(mean(rm_purchase[["total_purchased"]]))
+
+fixed_purchase <- rm_review%>%
+  mutate(new_total_purchased = if_else (is.na(total_purchased),avg_purchase,total_purchased)
+  )
+
+new_review <- fixed_purchase%>%
+  mutate(new_review = case_when(
+    str_detect(user_submitted_review,"Awesome") ~ "positive",
+    str_detect(user_submitted_review,"okay") ~ "positive",
+    str_detect(user_submitted_review,"better book") ~ "positive",
+    str_detect(user_submitted_review,"OK") ~ "positive",
+    str_detect(user_submitted_review,"not") ~ "negative",
+    str_detect(user_submitted_review,"Hated") ~ "negative",
+    str_detect(user_submitted_review,"other") ~ "negative",
+    str_detect(user_submitted_review,"learned") ~ "positive",
+    TRUE ~ "no review"
+     ))
+
+# dateformat <- function(str){
+#   date <- mdy(str)
+#   return (date)
+# }
+library(lubridate)
+
+standard_date <- mdy(new_review$date)
+  
+new_date <- new_review %>%
+  mutate(new_date = standard_date)
+ #mutate(new_date = unlist(map(date,mdy)))   #result is number instead of a date format??
+   # mutate(new_date = map(date, dateformat))
+
+
+groupby2 <- new_date%>%
+  mutate(bigday = if_else(new_date< '2019-7-1',"before","after")) #18078 equals to 2019/7/1
+  #mutate(bigday = if_else(new_date<18078,"before","after")) #18078 equals to 2019/7/1
+
+program_effect <- groupby2 %>%
+  group_by(bigday)%>%
+  summarise(sales = sum(new_total_purchased))
+
+individual <- groupby2 %>%
+  filter (customer_type=="Individual")
+
+individual_program <- individual %>%
+  group_by(bigday)%>%
+  summarise(sales = sum(new_total_purchased))
+
+business_program <- groupby2 %>%
+  filter (customer_type=="Business")%>%
+  group_by(bigday)%>%
+  summarise(sales = sum(new_total_purchased))
+
+positive_program <- groupby2 %>%
+  filter (new_review=="positive")%>%
+  group_by(bigday)%>%
+  summarise(positive_num = length(new_review))
+
+negative_program <- groupby2 %>%
+  filter (new_review=="negative")%>%
+  group_by(bigday)%>%
+  summarise(positive_num = length(new_review))
+
+#summary(positive_program)
+```
+
+## Including Plots
+
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+

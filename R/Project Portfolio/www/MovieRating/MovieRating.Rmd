@@ -1,0 +1,180 @@
+---
+title: "Analyzing Movie Ratings"
+author: "Zhiwen Shi"
+output: html_document
+date: "2022-10-19"
+---
+
+# Introduction
+
+- Title: Movies' ratings vs user votes
+- Usually, we can find a lot of information online about the ranking of movies, universities, supermarkets, etc. We can use these data to supplement information from another database or facilitate trend analysis. However, it's not easy to choose the right criterion because several might be interesting (e.g., movies' ratings and user votes). In this project, we want to extract information on the most popular movies from early 2020 and check if the ratings are in alignment with the votes. If yes, then we can consider either one or the other without loss of information.
+
+## Loading the Web Page
+
+The first step when web scraping is loading the web page and the necessary packages.
+
+```{r}
+library(tidyverse)
+library(rvest)
+library(ggplot2)
+
+url = 'https://www.imdb.com/search/title/?title_type=feature&release_date=2020-03-01,2020-07-31&count=30'
+
+wp_content <- read_html(url)
+```
+
+### String Manipulation Reminder 
+
+```{r}
+as.numeric("125")
+# it yields 125 as numeric
+as.numeric(c("5.14", "2.84"))
+# it yields 5.14 2.84 as numeric
+as.numeric("1,025")
+# it yields NA instead of 1025. use readr:parse_number() instead
+
+parse_number("1,025")
+# it yields 1025 as numeric
+parse_number(c("3km", "40 mins", "(+2.5)"))
+# it yields 3.0 40.0  2.5 as numeric
+
+str_trim("  Remove whitespaces before and after                ")
+# it yields "Remove whitespaces before and after"
+str_replace_all("   Remove whitespaces before and after                "," ","")
+# same as before, this can be used to remove "\n"
+
+as.numeric("10.50")
+as.numeric(c("14.59", "3.14", "55"))
+parse_number(c("14 min", "17,35", "(2012)", "1,2,3,4"))
+str_trim(" Spaces before and after should disappear    ")
+```
+
+## Setting down a strategy
+
+1. The blocks from one movie to another are similar; they probably use the same selectors. If we can understand a block structure, we'll likely understand the overall structure. 
+2. There are some missing values. Specially, the ratings and user votes are missing for some movies. Use the Browser Developer Tools to access the page's code and identify this block.
+
+Browse these codes to find the selectors of the elements. Then use the Selector Gadget tool to identify how many elements we can successfully capture, as well as any missing ones.
+
+### Extracting Elements from the Header
+
+```{r}
+titles <- wp_content %>% 
+  html_nodes('.lister-item-header a') %>% 
+  html_text()
+
+years <- wp_content %>% 
+  html_nodes('.lister-item-year') %>% 
+  html_text()
+years <- parse_number(years)
+```
+
+### Extracting the Movies' Features
+
+```{r}
+runtimes <- wp_content %>% 
+  html_nodes('.runtime') %>% 
+  html_text()
+runtimes <- parse_number(runtimes)
+
+genres <- wp_content %>% 
+  html_nodes('.genre') %>% 
+  html_text()
+genres <- str_trim(genres)
+```
+
+### Extracting the Movies' Ratings
+
+```{r}
+ratings <- wp_content %>% 
+  html_nodes('strong') %>% 
+  html_text()
+ratings <- ratings[3:32]
+ratings <- as.numeric(ratings)
+
+metascores <- wp_content %>% 
+  html_nodes('.metascore') %>% 
+  html_text()
+metascores <- as.numeric(metascores)
+
+```
+
+### Extracting the Movies' Votes
+
+```{r}
+
+votes <- wp_content %>% 
+  html_nodes('.sort-num_votes-visible span:nth-child(2)') %>% 
+  html_attr('data-value')
+votes <- parse_number(votes)
+
+```
+
+## Dealing with Missing Values
+
+### Inserting values into a vector is not a trivial operation, so it isn't available in R. We've provided with the append_vector() function.
+
+```{r}
+append_vector <- function(vector, inserted_indices, values){
+
+  ## Creating the current indices of the vector
+  vector_current_indices <- 1:length(vector)
+
+  ## Adding small amount of values (between 0 and 0.9) to the `inserted_indices`
+  new_inserted_indices <- inserted_indices + seq(0, 0.9, length.out = length(inserted_indices))
+
+  ## Appending the `new_inserted_indices` to the current vector indices
+  indices <- c(vector_current_indices, new_inserted_indices)
+
+  ## Ordering the values according to the indices
+  ordered_indices <- order(indices)
+
+  ## Appending the new value to the existing vector
+  new_vector <- c(vector, values)
+  
+  ## Ordering the new vector wrt the ordered indices
+  new_vector[ordered_indices]
+}
+
+vector <- c("A", "B", "C", "E", "F", "G", "I", "J") # D and H are missing
+
+# Inserting NA
+append_vector(vector, c(3, 6), NA) 
+
+# Inserting D and H
+append_vector(vector, c(3, 6), c("D", "H"))
+```
+### Adding missing values and create the table
+
+Creating a dataframe with the data we previously extracted: titles, years, runtimes, genres, user ratings, metascores, and votes. Keeping only the integer part of the user ratings using the `floor()` function. For example, `3.4` becomes `3`.
+
+```{r}
+metascores <- append_vector(metascores, c(19, 26, 27), c(NA, NA, NA))
+```
+
+```{r}
+movie_df <- tibble::tibble("title" = titles, 
+                           "year" = years, 
+                           "runtime" = runtimes, 
+                           "genre" = genres, 
+                           "rating" = floor(ratings), 
+                           "metascore" = metascores,
+                           "vote" = votes)
+ggplot(data = movie_df,
+       aes(x = rating, y = vote, group = rating)) +
+  geom_boxplot()
+```
+We determine that the lowest- and highest-rated films have the lowest and highest votes. There is also a linear correlation between the ratings and votes, on average.
+
+### Correlation between vote and rating
+
+```{r}
+correlation <- movie_df %>%
+  select(vote, rating) %>% 
+  cor(use= 'pairwise.complete.obs') 
+
+
+correlation
+```
+

@@ -1,0 +1,253 @@
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+wnba <- read_csv('wnba.csv')
+```
+
+### Proportions with Bar chart
+
+```{r}
+wnba%>%
+ggplot(aes(x = Exp_ordinal, y = ..prop.. *100,
+       group = 1, fill = factor(..x..)))+
+geom_bar()
+theme(legend.position = 'none')+
+labs(x = 'Experience Level',
+     y = 'Percentage')
+```
+
+### stacked bar chart
+```{r}
+pos_prop <- wnba %>% 
+  group_by(Pos) %>% 
+  summarize(Prop = n() / nrow(wnba))
+
+ggplot(data = pos_prop, 
+              aes(x = "", y = Prop, fill = Pos)) + 
+  geom_bar(stat = "identity", width = 0.25) +
+  coord_flip() +
+  geom_text(aes(label = str_c(round(Prop * 100), "%")), 
+            position = position_stack(vjust = 0.5)) + 
+  labs(x = NULL, 
+       y = NULL, 
+       fill = NULL, 
+       title = "Player Distribution by Position") + 
+  theme_classic() + 
+  theme(axis.line = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank())
+```
+### Pie chart
+
+```{r}
+pos_prop <- wnba %>% 
+  group_by(Pos) %>% 
+  summarize(Prop = n() / nrow(wnba))
+
+ggplot(data = pos_prop, 
+              aes(x = "", 
+                  y = Prop, 
+                  fill = Pos)) + 
+  geom_bar(stat = "identity") +
+  coord_polar(theta = "y")
+```
+### Histogram
+
+A histogram is basically the visual form of a grouped frequency table. Structurally, a histogram can also be understood as a modified version of a bar chart. The main difference is that, in the case of a histogram, there are no gaps between bars, and each bar represents an interval, not a single value.
+
+```{r}
+games_binwidth <- (max(wnba$Games_Played) - min(wnba$Games_Played)) / 10
+wnba%>%
+ggplot(aes(x = Games_Played))+
+geom_histogram(binwidth = games_binwidth,
+               boundary = min(wnba$Games_Played))+
+scale_x_continuous(breaks = seq(0,35,by=5))
+```
+
+### Comparing frequency distributions
+
+```{r}
+
+library(ggplot2)
+wnba%>%
+ggplot(aes(x = Pos, fill = Exp_ordinal))+
+geom_bar(position = 'dodge')+
+labs(x='Position')
+
+
+pos_by_exp <- wnba %>% 
+  group_by(Exp_ordinal, Pos)%>%
+  summarise(Freq = n())
+
+pos_by_exp%>%
+ggplot(aes(x = Pos, y = Freq ,fill = Exp_ordinal))+
+geom_bar(position = 'dodge',
+        stat = 'identity')+
+labs(x='Position')
+
+```
+
+### Challenge: Do Older Players Play Less?
+
+
+```{r}
+wnba <- wnba %>% 
+  mutate(age_relative = 
+         if_else(Age >= 27, "old", "young")) %>% 
+  mutate(age_relative = 
+         factor(age_relative, 
+                levels = c("young", "old")))
+
+wnba <- wnba %>% 
+  mutate(min_relative = 
+         if_else(MIN >= 497, "average or above", "below average")) %>% 
+  mutate(min_relative = 
+         factor(min_relative,
+                levels = c("below average", "average or above")))
+
+wnba %>%
+ggplot( aes(x=age_relative, fill = min_relative))+
+geom_bar(position = 'dodge')
+```
+
+The information provided by the MIN variable is much more granular, and we can plot the distribution of this variable instead. Because the MIN variable is measured on a ratio scale, we'll need to use histograms instead of bar plots. 
+
+
+```{r}
+ggplot(data = wnba,
+         aes(x = MIN, fill = age_relative)) +
+  geom_histogram(bins = 10, 
+                 position = "identity", # Superimpose one on top of the other.
+                 alpha = 0.5)+ # Make each histogram transparent
+    geom_vline(aes(xintercept = mean(MIN), 
+                   linetype = "Average minutes"), 
+               color = "black")
+```
+```{r}
+ggplot(data = wnba,
+         aes(x = MIN, fill = age_relative)) +
+  geom_histogram(bins = 10, 
+                 position = "identity", # Superimpose one on top of the other.
+                 alpha = 0.5)+ # Make each histogram transparent
+    geom_vline(aes(xintercept = mean(MIN), 
+                   linetype = "Average minutes"), 
+               color = "black") +
+  facet_wrap(~age_relative)
+```
+
+### Frequency Polygons
+
+```{r}
+ggplot(data = wnba,
+         aes(x = MIN, color = age_relative)) +
+  geom_freqpoly(bins = 10, 
+                 position = "identity") +
+  geom_vline(aes(xintercept = mean(MIN), 
+                 linetype = "Average minutes"), 
+             color = "black")
+```
+
+### Kernel Density Estimate Plots
+
+```{r}
+wnba%>%
+ggplot(aes(x=MIN, color = age_relative))+
+geom_density()+
+geom_vline(aes(xintercept = mean(MIN),
+               linetype = 'Average Minutes'),
+           color='black')
+
+```
+
+### Drawbacks of Kernel Density Plots 
+
+If we look very closely, we can see a couple of clear patterns: the shortest players are generally guards, the tallest players are generally centers, mid-height players are generally forwards or play in a combined position, etc.
+
+Having to look very closely to a graph to identify obvious patterns is far from ideal. If there's any pattern, we want to see it immediately. 
+
+```{r}
+ggplot(data = wnba,
+         aes(x = Height, color = Pos)) +
+  geom_density()
+```
+
+### Scatter Plots (Strip Plots)
+
+One alternative we can use to visualize the distribution of heights as a function of player position is this style of scatterplot where each category is represented independently on the x-axis:
+
+```{r}
+ggplot(data = wnba,
+         aes(x = Pos, y = Height, color = Pos)) + 
+  geom_point()
+```
+
+A downside of this scatter plot is that the bullet points overlap. We can fix this by adding a bit of jitter to each distribution. Jitter spreads the points out by applying a small amount of random noise to each point. We can do this by adding the geom_jitter() layer to the code:
+
+```{r}
+ggplot(data = wnba,
+         aes(x = Pos, y = Height, color = Pos)) + 
+  geom_point()+
+  geom_jitter()
+```
+
+### Box Plots
+
+Besides scatter plots, there's another kind of graph we can use to display many distributions at once and make sure everything is still readable.
+
+```{r}
+wnba%>%
+ggplot(aes(x = Pos, y =Weight, color= Pos))+
+geom_boxplot()
+```
+The few dots we see for the box plots of centers and guards/forwards (G/F) represent values in the distribution that are much larger or much lower than the rest of the values. A value that is much lower or much larger than the rest of the values in a distribution is called an outlier.
+
+A value is an outlier if:
+
+* It's larger than the upper quartile by 1.5 times the difference between the upper quartile and the lower quartile (the difference is also called the interquartile range).
+* It's lower than the lower quartile by 1.5 times the difference between the upper quartile and the lower quartile (the difference is also called the interquartile range).
+
+```{r}
+sum(wnba$Games_Played > 0) # true value will count as 1 in the summation
+sum(wnba$Games_Played)
+nrow(wnba)
+```
+```{r}
+compute_mode <- function(vector) {
+    counts_df  <-  tibble(vector) %>% 
+        group_by(vector) %>% 
+        summarise(frequency = n()) %>% 
+        arrange(desc(frequency)) 
+
+    counts_df$vector[1]
+}
+ggplot(data = wnba,
+    aes(x = Age)) +
+    geom_density(alpha = 0.1, 
+                 color='blue', 
+                 fill='blue') +
+    geom_vline(aes(xintercept = compute_mode(Age), 
+                   color = 'Mode'), 
+               size = 1.2 ) +
+    geom_vline(aes(xintercept = median(Age), 
+                   color = 'Median'), 
+               size = 1.2 ) +
+    geom_vline(aes(xintercept = mean(Age), 
+                   color = 'Mean'), 
+               size = 1.2 ) +
+    scale_y_continuous(labels = scales::comma) +
+    xlim(20,40)+
+    scale_colour_manual(values = c("Mode" = "green", 
+                                   "Median" = "black", 
+                                   "Mean" = "orange"), 
+                        name = "") +
+    theme_bw() + 
+    theme(legend.position='top') +
+    xlab("Age") + 
+    ylab("Density")
+```
+```{r}
+
+```

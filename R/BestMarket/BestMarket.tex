@@ -1,0 +1,1069 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Data Analysis Project},
+  pdfauthor={Zhiwen Shi},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Data Analysis Project}
+\author{Zhiwen Shi}
+\date{2022/10/21}
+
+\begin{document}
+\maketitle
+
+\hypertarget{description}{%
+\subsubsection{Description}\label{description}}
+
+This is one of the project reports in my portfolio about data analysis
+using R.
+
+The aim for the project is to find the best market to invest the
+advertisement for the e-leaning products.
+
+The skills are covering data extraction, data cleaning, data
+visualization, data analysis and strategy proposal.
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\hypertarget{finding-the-two-best-markets-to-advertise-in-an-e-learning-product}{%
+\subsubsection{Finding the Two Best Markets to Advertise in an
+E-learning
+Product}\label{finding-the-two-best-markets-to-advertise-in-an-e-learning-product}}
+
+In this project, we'll aim to find the two best markets to advertise our
+product in --- we're working for an e-learning company that offers
+courses on programming. Most of our courses are on web and mobile
+development, but we also cover many other domains, like data science,
+game development, etc.
+
+\hypertarget{understanding-the-data}{%
+\section{Understanding the Data}\label{understanding-the-data}}
+
+To avoid spending money on organizing a survey, we'll first try to make
+use of existing data to determine whether we can reach any reliable
+result.
+
+One good candidate for our purpose is
+\href{https://medium.freecodecamp.org/we-asked-20-000-people-who-they-are-and-how-theyre-learning-to-code-fff5d668969}{freeCodeCamp's
+2017 New Coder Survey}.
+\href{https://www.freecodecamp.org/}{freeCodeCamp} is a free e-learning
+platform that offers courses on web development. Because they run
+\href{https://medium.freecodecamp.org/}{a popular Medium publication}
+(over 400,000 followers), their survey attracted new coders with varying
+interests (not only web development), which is ideal for the purpose of
+our analysis.
+
+The survey data is publicly available in
+\href{https://github.com/freeCodeCamp/2017-new-coder-survey}{this GitHub
+repository}. Below, we'll do a quick exploration of the
+\texttt{2017-fCC-New-Coders-Survey-Data.csv} file stored in the
+\texttt{clean-data} folder of the repository we just mentioned. We'll
+read in the file using the direct link
+\href{https://raw.githubusercontent.com/freeCodeCamp/2017-new-coder-survey/master/clean-data/2017-fCC-New-Coders-Survey-Data.csv}{here}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+
+\NormalTok{fcc }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"2017{-}fCC{-}New{-}Coders{-}Survey{-}Data.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 18175 Columns: 136
+## -- Column specification --------------------------------------------------------
+## Delimiter: ","
+## chr   (27): BootcampName, CityPopulation, CodeEventOther, CommuteTime, Count...
+## dbl  (105): Age, AttendedBootcamp, BootcampFinish, BootcampLoanYesNo, Bootca...
+## dttm   (4): Part1EndTime, Part1StartTime, Part2EndTime, Part2StartTime
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dim}\NormalTok{(fcc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 18175   136
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(fcc, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 136
+##     Age Attend~1 Bootc~2 Bootc~3 Bootc~4 Bootc~5 Child~6 CityP~7 CodeE~8 CodeE~9
+##   <dbl>    <dbl>   <dbl>   <dbl> <chr>     <dbl>   <dbl> <chr>     <dbl>   <dbl>
+## 1    27        0      NA      NA <NA>         NA      NA more t~      NA      NA
+## 2    34        0      NA      NA <NA>         NA      NA less t~      NA      NA
+## 3    21        0      NA      NA <NA>         NA      NA more t~      NA      NA
+## 4    26        0      NA      NA <NA>         NA      NA betwee~      NA      NA
+## 5    20        0      NA      NA <NA>         NA      NA betwee~      NA      NA
+## # ... with 126 more variables: CodeEventFCC <dbl>, CodeEventGameJam <dbl>,
+## #   CodeEventGirlDev <dbl>, CodeEventHackathons <dbl>, CodeEventMeetup <dbl>,
+## #   CodeEventNodeSchool <dbl>, CodeEventNone <dbl>, CodeEventOther <chr>,
+## #   CodeEventRailsBridge <dbl>, CodeEventRailsGirls <dbl>,
+## #   CodeEventStartUpWknd <dbl>, CodeEventWkdBootcamps <dbl>,
+## #   CodeEventWomenCode <dbl>, CodeEventWorkshops <dbl>, CommuteTime <chr>,
+## #   CountryCitizen <chr>, CountryLive <chr>, EmploymentField <chr>, ...
+\end{verbatim}
+
+\hypertarget{checking-for-sample-representativity}{%
+\subsection{Checking for Sample
+Representativity}\label{checking-for-sample-representativity}}
+
+As we mentioned in the introduction, most of our courses are on web and
+mobile development, but we also cover many other domains, like data
+science, game development, etc. For the purpose of our analysis, we want
+to answer questions about a population of new coders that are interested
+in the subjects we teach. We'd like to know:
+
+\begin{itemize}
+\tightlist
+\item
+  Where are these new coders located.
+\item
+  What locations have the greatest densities of new coders.
+\item
+  How much money they're willing to spend on learning.
+\end{itemize}
+
+So we first need to clarify whether the data set has the right
+categories of people for our purpose. The \texttt{JobRoleInterest}
+column describes for every participant the role(s) they'd be interested
+in working in. If a participant is interested in working in a certain
+domain, it means that they're also interested in learning about that
+domain. So let's take a look at the frequency distribution table of this
+column \footnote{We can use the
+  \href{https://jofrhwld.github.io/teaching/courses/2017_lsa/lectures/Session_3.nb.html}{Split-and-Combine
+  workflow}.} and determine whether the data we have is relevant.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#split{-}and{-}combine workflow}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fcc }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(JobRoleInterest) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{freq =} \FunctionTok{n}\NormalTok{()}\SpecialCharTok{*}\DecValTok{100}\SpecialCharTok{/}\FunctionTok{nrow}\NormalTok{(fcc)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(freq))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3,212 x 2
+##    JobRoleInterest                                       freq
+##    <chr>                                                <dbl>
+##  1 <NA>                                                61.5  
+##  2 Full-Stack Web Developer                             4.53 
+##  3 Front-End Web Developer                              2.48 
+##  4 Data Scientist                                       0.836
+##  5 Back-End Web Developer                               0.781
+##  6 Mobile Developer                                     0.644
+##  7 Game Developer                                       0.627
+##  8 Information Security                                 0.506
+##  9 Full-Stack Web Developer,   Front-End Web Developer  0.352
+## 10 Front-End Web Developer, Full-Stack Web Developer    0.308
+## # ... with 3,202 more rows
+\end{verbatim}
+
+The information in the table above is quite granular, but from a quick
+scan it looks like:
+
+\begin{itemize}
+\tightlist
+\item
+  A lot of people are interested in web development (full-stack
+  \emph{web development}, front-end \emph{web development} and back-end
+  \emph{web development}).
+\item
+  A few people are interested in mobile development.
+\item
+  A few people are interested in domains other than web and mobile
+  development.
+\end{itemize}
+
+It's also interesting to note that many respondents are interested in
+more than one subject. It'd be useful to get a better picture of how
+many people are interested in a single subject and how many have mixed
+interests. Consequently, in the next code block, we'll:
+
+\begin{itemize}
+\tightlist
+\item
+  Split each string in the \texttt{JobRoleInterest} column to find the
+  number of options for each participant.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    We'll first drop the NA values \footnote{We can use the
+      \href{https://tidyr.tidyverse.org/reference/drop_na.html}{\texttt{drop\_na()}
+      function}.} because we cannot split NA values.
+  \end{itemize}
+\item
+  Generate a frequency table for the variable describing the number of
+  options \footnote{We can use the
+    \href{https://www.rdocumentation.org/packages/stringr/versions/1.4.1/topics/str_split}{\texttt{stringr::str\_split()}
+    function}.}.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Split each string in the \textquotesingle{}JobRoleInterest\textquotesingle{} column}
+\NormalTok{splitted\_interests }\OtherTok{\textless{}{-}}\NormalTok{ fcc }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(JobRoleInterest) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{drop\_na}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  
+\CommentTok{\#Tidyverse actually makes by default operation over columns, rowwise changes this behavior.}
+\NormalTok{  rowwise }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{opts =} \FunctionTok{length}\NormalTok{(stringr}\SpecialCharTok{::}\FunctionTok{str\_split}\NormalTok{(JobRoleInterest, }\StringTok{","}\NormalTok{)[[}\DecValTok{1}\NormalTok{]]))}
+ \CommentTok{\# alternative implementation}
+ \CommentTok{\#  mutate(opts = unlist( map(JobRoleInterest, function(x) length(str\_split(x,\textquotesingle{},\textquotesingle{})[[1]]))))}
+ \CommentTok{\# then ungroup() is not needed later.}
+  
+\CommentTok{\# Frequency table for the var describing the number of options}
+\NormalTok{n\_of\_options }\OtherTok{\textless{}{-}}\NormalTok{ splitted\_interests }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}  \CommentTok{\#this is needeed because we used the rowwise() function before}
+  \FunctionTok{group\_by}\NormalTok{(opts) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{freq =} \FunctionTok{n}\NormalTok{()}\SpecialCharTok{*}\DecValTok{100}\SpecialCharTok{/}\FunctionTok{nrow}\NormalTok{(splitted\_interests))}
+
+\NormalTok{n\_of\_options}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 13 x 2
+##     opts    freq
+##    <int>   <dbl>
+##  1     1 31.7   
+##  2     2 10.9   
+##  3     3 15.9   
+##  4     4 15.2   
+##  5     5 12.0   
+##  6     6  6.72  
+##  7     7  3.86  
+##  8     8  1.76  
+##  9     9  0.987 
+## 10    10  0.472 
+## 11    11  0.186 
+## 12    12  0.300 
+## 13    13  0.0286
+\end{verbatim}
+
+It turns out that only 31.65\% of the participants have a clear idea
+about what programming niche they'd like to work in, while the vast
+majority of students have mixed interests. But given that we offer
+courses on various subjects, the fact that new coders have mixed
+interest might be actually good for us.
+
+The focus of our courses is on web and mobile development, so let's find
+out how many respondents chose at least one of these two options.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Frequency table (we can also use split{-}and{-}combine) str() will sum the result.}
+\NormalTok{web\_or\_mobile }\OtherTok{\textless{}{-}}\NormalTok{ stringr}\SpecialCharTok{::}\FunctionTok{str\_detect}\NormalTok{(fcc}\SpecialCharTok{$}\NormalTok{JobRoleInterest, }\StringTok{"Web Developer|Mobile Developer"}\NormalTok{) }
+\NormalTok{freq\_table }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(web\_or\_mobile)}
+\NormalTok{freq\_table }\OtherTok{\textless{}{-}}\NormalTok{ freq\_table }\SpecialCharTok{*} \DecValTok{100} \SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(freq\_table)}
+\NormalTok{freq\_table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## web_or_mobile
+##    FALSE     TRUE 
+## 13.75858 86.24142
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Graph for the frequency table above}
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ tibble}\SpecialCharTok{::}\FunctionTok{tibble}\NormalTok{(}\AttributeTok{x =} \FunctionTok{c}\NormalTok{(}\StringTok{"Other Subject"}\NormalTok{,}\StringTok{"Web or Mobile Developpement"}\NormalTok{),}
+                       \AttributeTok{y =}\NormalTok{ freq\_table)}
+ \FunctionTok{library}\NormalTok{(ggplot2)}
+ \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ x, }\AttributeTok{y =}\NormalTok{ y, }\AttributeTok{fill =}\NormalTok{ x)) }\SpecialCharTok{+}
+   \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Ignoring unknown parameters: binwidth, bins, pad
+\end{verbatim}
+
+\begin{verbatim}
+## Don't know how to automatically pick scale for object of type table. Defaulting to continuous.
+\end{verbatim}
+
+\includegraphics{BestMarket_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+It turns out that most people in this survey (roughly 86\%) are
+interested in either web or mobile development. These figures offer us a
+strong reason to consider this sample representative for our population
+of interest. We want to advertise our courses to people interested in
+all sorts of programming niches but mostly web and mobile development.
+
+Now we need to figure out what are the best markets to invest money in
+for advertising our courses. We'd like to know:
+
+\begin{itemize}
+\tightlist
+\item
+  Where are these new coders located.
+\item
+  What are the locations with the greatest number of new coders.
+\item
+  How much money new coders are willing to spend on learning.
+\end{itemize}
+
+\hypertarget{new-coders---locations-and-densities}{%
+\section{New Coders - Locations and
+Densities}\label{new-coders---locations-and-densities}}
+
+One indicator of a good market is the number of potential customers ---
+the more potential customers in a market, the better. If our ads manage
+to convince 10\% of the 5,000 potential customers in market A to buy our
+product, then this is better than convincing 100\% of the 30 potential
+customers in market B.
+
+Let's begin with finding out where these new coders are located, and
+what are the densities (how many new coders there are) for each
+location. This should be a good start for finding out the best two
+markets to run our ads campaign in.
+
+The data set provides information about the location of each participant
+at a country level. We can think of each country as an individual
+market, so we can frame our goal as finding the two best countries to
+advertise in.
+
+We can start by examining the frequency distribution table of the
+\texttt{CountryLive} variable, which describes what country each
+participant lives in (not their origin country). We'll only consider
+those participants who answered what role(s) they're interested in, to
+make sure we work with a representative sample.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Isolate the participants that answered what role they\textquotesingle{}d be interested in}
+\NormalTok{fcc\_good }\OtherTok{\textless{}{-}}\NormalTok{ fcc }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{drop\_na}\NormalTok{(JobRoleInterest) }
+\CommentTok{\# Frequency tables with absolute and relative frequencies}
+\CommentTok{\# Display the frequency tables in a more readable format}
+\NormalTok{fcc\_good }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{group\_by}\NormalTok{(CountryLive) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summarise}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Absolute frequency}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{n}\NormalTok{(),}
+          \StringTok{\textasciigrave{}}\AttributeTok{Percentage}\StringTok{\textasciigrave{}} \OtherTok{=} \FunctionTok{n}\NormalTok{() }\SpecialCharTok{*} \DecValTok{100} \SpecialCharTok{/}  \FunctionTok{nrow}\NormalTok{(fcc\_good) ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(Percentage))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 138 x 3
+##    CountryLive              `Absolute frequency` Percentage
+##    <chr>                                   <int>      <dbl>
+##  1 United States of America                 3125      44.7 
+##  2 India                                     528       7.55
+##  3 United Kingdom                            315       4.51
+##  4 Canada                                    260       3.72
+##  5 <NA>                                      154       2.20
+##  6 Poland                                    131       1.87
+##  7 Brazil                                    129       1.84
+##  8 Germany                                   125       1.79
+##  9 Australia                                 112       1.60
+## 10 Russia                                    102       1.46
+## # ... with 128 more rows
+\end{verbatim}
+
+4.69\% of our potential customers are located in the US, and this
+definitely seems like the most interesting market. India has the second
+customer density, but it's just 7.55\%, which is not too far from the
+United Kingdom (4.50\%) or Canada (3.71\%).
+
+This is useful information, but we need to go more in depth than this
+and figure out how much money people are actually willing to spend on
+learning. Advertising in high-density markets where most people are only
+willing to learn for free is extremely unlikely to be profitable for us.
+
+\hypertarget{spending-money-for-learning}{%
+\section{Spending Money for
+Learning}\label{spending-money-for-learning}}
+
+The \texttt{MoneyForLearning} column describes in American dollars the
+amount of money spent by participants from the moment they started
+coding until the moment they completed the survey. Our company sells
+subscriptions at a price of \$59 per month, and for this reason we're
+interested in finding out how much money each student spends per month.
+
+We'll narrow down our analysis to only four countries: the US, India,
+the United Kingdom, and Canada. We do this for two reasons:
+
+\begin{itemize}
+\tightlist
+\item
+  These are the countries having the highest frequency in the frequency
+  table above, which means we have a decent amount of data for each.
+\item
+  Our courses are written in English, and English is an official
+  language in all these four countries. The more people know English,
+  the better our chances to target the right people with our ads.
+\end{itemize}
+
+Let's start with creating a new column that describes the amount of
+money a student has spent per month so far. To do that, we'll need to
+divide the \texttt{MoneyForLearning} column to the
+\texttt{MonthsProgramming} column. The problem is that some students
+answered that they have been learning to code for 0 months (it might be
+that they have just started). To avoid dividing by 0, we'll replace 0
+with 1 in the \texttt{MonthsProgramming} column.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Replace 0s with 1s to avoid division by 0}
+\NormalTok{fcc\_good }\OtherTok{\textless{}{-}}\NormalTok{ fcc\_good }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{MonthsProgramming =} \FunctionTok{replace}\NormalTok{(MonthsProgramming,  MonthsProgramming }\SpecialCharTok{==} \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{) )}
+\CommentTok{\# New column for the amount of money each student spends each month}
+\NormalTok{fcc\_good }\OtherTok{\textless{}{-}}\NormalTok{ fcc\_good }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{money\_per\_month =}\NormalTok{ MoneyForLearning}\SpecialCharTok{/}\NormalTok{MonthsProgramming) }
+\NormalTok{fcc\_good }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{na\_count =} \FunctionTok{sum}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(money\_per\_month)) ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pull}\NormalTok{(na\_count)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 675
+\end{verbatim}
+
+Let's keep only the rows that don't have NA values for the
+\texttt{money\_per\_month} column.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Keep only the rows with non{-}NAs in the \textasciigrave{}money\_per\_month\textasciigrave{} column }
+\NormalTok{fcc\_good  }\OtherTok{\textless{}{-}}\NormalTok{  fcc\_good }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ tidyr}\SpecialCharTok{::}\FunctionTok{drop\_na}\NormalTok{(money\_per\_month)}
+\end{Highlighting}
+\end{Shaded}
+
+We want to group the data by country, and then measure the average
+amount of money that students spend per month in each country. First,
+let's remove the rows having \texttt{NA} values for the
+\texttt{CountryLive} column, and check out if we still have enough data
+for the four countries that interest us.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove the rows with NA values in \textquotesingle{}CountryLive\textquotesingle{}}
+\NormalTok{fcc\_good  }\OtherTok{\textless{}{-}}\NormalTok{  fcc\_good }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ tidyr}\SpecialCharTok{::}\FunctionTok{drop\_na}\NormalTok{(CountryLive)}
+\CommentTok{\# Frequency table to check if we still have enough data}
+\NormalTok{fcc\_good }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(CountryLive) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{freq =} \FunctionTok{n}\NormalTok{() ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(freq)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   CountryLive               freq
+##   <chr>                    <int>
+## 1 United States of America  2933
+## 2 India                      463
+## 3 United Kingdom             279
+## 4 Canada                     240
+## 5 Poland                     122
+## 6 Germany                    114
+\end{verbatim}
+
+This should be enough, so let's compute the average value spent per
+month in each country by a student. We'll compute the average using the
+mean.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mean sum of money spent by students each month}
+\NormalTok{countries\_mean  }\OtherTok{\textless{}{-}}\NormalTok{  fcc\_good }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United States of America\textquotesingle{}} \SpecialCharTok{|}\NormalTok{ CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}India\textquotesingle{}} \SpecialCharTok{|}\NormalTok{ CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United Kingdom\textquotesingle{}}\SpecialCharTok{|}\NormalTok{CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}Canada\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(CountryLive) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(money\_per\_month)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mean))}
+\NormalTok{countries\_mean}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 2
+##   CountryLive               mean
+##   <chr>                    <dbl>
+## 1 United States of America 228. 
+## 2 India                    135. 
+## 3 Canada                   114. 
+## 4 United Kingdom            45.5
+\end{verbatim}
+
+The results for the United Kingdom and Canada are a bit surprising
+relative to the values we see for India. If we considered a few
+socio-economical metrics (like \href{https://bit.ly/2I3cukh}{GDP per
+capita}), we'd intuitively expect people in the UK and Canada to spend
+more on learning than people in India.
+
+It might be that we don't have have enough representative data for the
+United Kingdom and Canada, or we have some outliers (maybe coming from
+wrong survey answers) making the mean too large for India, or too low
+for the UK and Canada. Or it might be that the results are correct.
+
+\hypertarget{dealing-with-extreme-outliers}{%
+\subsection{Dealing with Extreme
+Outliers}\label{dealing-with-extreme-outliers}}
+
+Let's use box plots to visualize the distribution of the
+\texttt{money\_per\_month} variable for each country.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Isolate only the countries of interest}
+\NormalTok{only\_4  }\OtherTok{\textless{}{-}}\NormalTok{  fcc\_good }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United States of America\textquotesingle{}} \SpecialCharTok{|}\NormalTok{ CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}India\textquotesingle{}} \SpecialCharTok{|}\NormalTok{ CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United Kingdom\textquotesingle{}}\SpecialCharTok{|}\NormalTok{CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}Canada\textquotesingle{}}\NormalTok{)}
+\CommentTok{\# Since maybe, we will remove elements from the database, }
+\CommentTok{\# we add an index column containing the number of each row. }
+\CommentTok{\# Hence, we will have a match with the original database in case of some indexes.}
+\NormalTok{only\_4 }\OtherTok{\textless{}{-}}\NormalTok{ only\_4 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{index =} \FunctionTok{row\_number}\NormalTok{())}
+\CommentTok{\# Box plots to visualize distributions}
+\FunctionTok{ggplot}\NormalTok{( }\AttributeTok{data =}\NormalTok{ only\_4, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ CountryLive, }\AttributeTok{y =}\NormalTok{ money\_per\_month)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Money Spent Per Month Per Country}\SpecialCharTok{\textbackslash{}n}\StringTok{(Distributions)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Country"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Money per month (US dollars)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BestMarket_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+It's hard to see on the plot above if there's anything wrong with the
+data for the United Kingdom, India, or Canada, but we can see
+immediately that there's something really off for the US: two persons
+spend each month \$50,000 or more for learning. This is not impossible,
+but it seems extremely unlikely, so we'll remove every value that goes
+over \$20,000 per month.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Isolate only those participants who spend less than 10,000 per month}
+\NormalTok{fcc\_good  }\OtherTok{\textless{}{-}}\NormalTok{ fcc\_good }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(money\_per\_month }\SpecialCharTok{\textless{}} \DecValTok{20000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Now let's recompute the mean values and plot the box plots again.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mean sum of money spent by students each month}
+\NormalTok{countries\_mean }\OtherTok{=}\NormalTok{ fcc\_good }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United States of America\textquotesingle{}} \SpecialCharTok{|}\NormalTok{ CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}India\textquotesingle{}} \SpecialCharTok{|}\NormalTok{ CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United Kingdom\textquotesingle{}}\SpecialCharTok{|}\NormalTok{CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}Canada\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(CountryLive) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(money\_per\_month)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mean))}
+\NormalTok{countries\_mean}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 2
+##   CountryLive               mean
+##   <chr>                    <dbl>
+## 1 United States of America 184. 
+## 2 India                    135. 
+## 3 Canada                   114. 
+## 4 United Kingdom            45.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Isolate only the countries of interest}
+\NormalTok{only\_4  }\OtherTok{\textless{}{-}}\NormalTok{  fcc\_good }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United States of America\textquotesingle{}} \SpecialCharTok{|}\NormalTok{ CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}India\textquotesingle{}} \SpecialCharTok{|}\NormalTok{ CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United Kingdom\textquotesingle{}}\SpecialCharTok{|}\NormalTok{CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}Canada\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{index =} \FunctionTok{row\_number}\NormalTok{())}
+\CommentTok{\# Box plots to visualize distributions}
+\FunctionTok{ggplot}\NormalTok{( }\AttributeTok{data =}\NormalTok{ only\_4, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ CountryLive, }\AttributeTok{y =}\NormalTok{ money\_per\_month)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Money Spent Per Month Per Country}\SpecialCharTok{\textbackslash{}n}\StringTok{(Distributions)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Country"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Money per month (US dollars)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BestMarket_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+We can see a few extreme outliers for India (values over \$2,500 per
+month), but it's unclear whether this is good data or not. Maybe these
+persons attended several bootcamps, which tend to be very expensive.
+Let's examine these two data points to see if we can find anything
+relevant.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Inspect the extreme outliers for India}
+\NormalTok{india\_outliers  }\OtherTok{\textless{}{-}}\NormalTok{  only\_4 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}India\textquotesingle{}} \SpecialCharTok{\&} 
+\NormalTok{           money\_per\_month }\SpecialCharTok{\textgreater{}=} \DecValTok{2500}\NormalTok{)}
+\NormalTok{india\_outliers}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 138
+##     Age Attend~1 Bootc~2 Bootc~3 Bootc~4 Bootc~5 Child~6 CityP~7 CodeE~8 CodeE~9
+##   <dbl>    <dbl>   <dbl>   <dbl> <chr>     <dbl>   <dbl> <chr>     <dbl>   <dbl>
+## 1    24        0      NA      NA <NA>         NA      NA betwee~      NA      NA
+## 2    20        0      NA      NA <NA>         NA      NA more t~      NA      NA
+## 3    28        0      NA      NA <NA>         NA      NA betwee~       1      NA
+## 4    22        0      NA      NA <NA>         NA      NA more t~      NA      NA
+## 5    19        0      NA      NA <NA>         NA      NA more t~      NA      NA
+## 6    27        0      NA      NA <NA>         NA      NA more t~      NA      NA
+## # ... with 128 more variables: CodeEventFCC <dbl>, CodeEventGameJam <dbl>,
+## #   CodeEventGirlDev <dbl>, CodeEventHackathons <dbl>, CodeEventMeetup <dbl>,
+## #   CodeEventNodeSchool <dbl>, CodeEventNone <dbl>, CodeEventOther <chr>,
+## #   CodeEventRailsBridge <dbl>, CodeEventRailsGirls <dbl>,
+## #   CodeEventStartUpWknd <dbl>, CodeEventWkdBootcamps <dbl>,
+## #   CodeEventWomenCode <dbl>, CodeEventWorkshops <dbl>, CommuteTime <chr>,
+## #   CountryCitizen <chr>, CountryLive <chr>, EmploymentField <chr>, ...
+\end{verbatim}
+
+It seems that neither participant attended a bootcamp. Overall, it's
+really hard to figure out from the data whether these persons really
+spent that much money with learning. The actual question of the survey
+was \emph{``Aside from university tuition, about how much money have you
+spent on learning to code so far (in US dollars)?''}, so they might have
+misunderstood and thought university tuition is included. It seems safer
+to remove these six rows.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove the outliers for India}
+\NormalTok{only\_4 }\OtherTok{\textless{}{-}}\NormalTok{  only\_4 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(index }\SpecialCharTok{\%in\%}\NormalTok{ india\_outliers}\SpecialCharTok{$}\NormalTok{index))}
+\end{Highlighting}
+\end{Shaded}
+
+Looking back at the box plot above, we can also see more extreme
+outliers for the US (values over \$6,000 per month). Let's examine these
+participants in more detail.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Examine the extreme outliers for the US}
+\NormalTok{us\_outliers }\OtherTok{=}\NormalTok{ only\_4 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United States of America\textquotesingle{}} \SpecialCharTok{\&} 
+\NormalTok{           money\_per\_month }\SpecialCharTok{\textgreater{}=} \DecValTok{6000}\NormalTok{)}
+\NormalTok{us\_outliers}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 11 x 138
+##      Age Atten~1 Bootc~2 Bootc~3 Bootc~4 Bootc~5 Child~6 CityP~7 CodeE~8 CodeE~9
+##    <dbl>   <dbl>   <dbl>   <dbl> <chr>     <dbl>   <dbl> <chr>     <dbl>   <dbl>
+##  1    26       1       0       0 The Co~       1      NA more t~       1      NA
+##  2    32       1       0       0 The Ir~       1      NA betwee~      NA      NA
+##  3    34       1       1       0 We Can~       1      NA more t~      NA      NA
+##  4    31       0      NA      NA <NA>         NA      NA betwee~      NA      NA
+##  5    46       1       1       1 Sabio.~       0      NA betwee~      NA      NA
+##  6    32       0      NA      NA <NA>         NA      NA more t~       1      NA
+##  7    26       1       0       1 Codeup        0      NA more t~      NA      NA
+##  8    33       1       0       1 Grand ~       1      NA betwee~      NA      NA
+##  9    29       0      NA      NA <NA>         NA       2 more t~      NA      NA
+## 10    27       0      NA      NA <NA>         NA       1 more t~      NA      NA
+## 11    50       0      NA      NA <NA>         NA       2 less t~      NA      NA
+## # ... with 128 more variables: CodeEventFCC <dbl>, CodeEventGameJam <dbl>,
+## #   CodeEventGirlDev <dbl>, CodeEventHackathons <dbl>, CodeEventMeetup <dbl>,
+## #   CodeEventNodeSchool <dbl>, CodeEventNone <dbl>, CodeEventOther <chr>,
+## #   CodeEventRailsBridge <dbl>, CodeEventRailsGirls <dbl>,
+## #   CodeEventStartUpWknd <dbl>, CodeEventWkdBootcamps <dbl>,
+## #   CodeEventWomenCode <dbl>, CodeEventWorkshops <dbl>, CommuteTime <chr>,
+## #   CountryCitizen <chr>, CountryLive <chr>, EmploymentField <chr>, ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{only\_4  }\OtherTok{\textless{}{-}}\NormalTok{  only\_4 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(index }\SpecialCharTok{\%in\%}\NormalTok{ us\_outliers}\SpecialCharTok{$}\NormalTok{index))}
+\end{Highlighting}
+\end{Shaded}
+
+Out of these 11 extreme outliers, six people attended bootcamps, which
+justify the large sums of money spent on learning. For the other five,
+it's hard to figure out from the data where they could have spent that
+much money on learning. Consequently, we'll remove those rows where
+participants reported thaT they spend \$6,000 each month, but they have
+never attended a bootcamp.
+
+Also, the data shows that eight respondents had been programming for no
+more than three months when they completed the survey. They most likely
+paid a large sum of money for a bootcamp that was going to last for
+several months, so the amount of money spent per month is unrealistic
+and should be significantly lower (because they probably didn't spend
+anything for the next couple of months after the survey). As a
+consequence, we'll remove every these eight outliers.
+
+In the next code block, we'll remove respondents that:
+
+\begin{itemize}
+\tightlist
+\item
+  Didn't attend bootcamps.
+\item
+  Had been programming for three months or less when at the time they
+  completed the survey.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove the respondents who didn\textquotesingle{}t attenD a bootcamp}
+\NormalTok{no\_bootcamp }\OtherTok{\textless{}{-}}\NormalTok{ only\_4 }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{filter}\NormalTok{(CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United States of America\textquotesingle{}} \SpecialCharTok{\&} 
+\NormalTok{           money\_per\_month }\SpecialCharTok{\textgreater{}=} \DecValTok{6000} \SpecialCharTok{\&}
+\NormalTok{             AttendedBootcamp }\SpecialCharTok{==} \DecValTok{0}\NormalTok{)}
+\NormalTok{only\_4\_  }\OtherTok{\textless{}{-}}\NormalTok{  only\_4 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(index }\SpecialCharTok{\%in\%}\NormalTok{ no\_bootcamp}\SpecialCharTok{$}\NormalTok{index))}
+\CommentTok{\# Remove the respondents that had been programming for less than 3 months}
+\NormalTok{less\_than\_3\_months }\OtherTok{\textless{}{-}}\NormalTok{ only\_4 }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{filter}\NormalTok{(CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}United States of America\textquotesingle{}} \SpecialCharTok{\&} 
+\NormalTok{           money\_per\_month }\SpecialCharTok{\textgreater{}=} \DecValTok{6000} \SpecialCharTok{\&}
+\NormalTok{           MonthsProgramming }\SpecialCharTok{\textless{}=} \DecValTok{3}\NormalTok{)}
+\NormalTok{only\_4  }\OtherTok{\textless{}{-}}\NormalTok{  only\_4 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(index }\SpecialCharTok{\%in\%}\NormalTok{ less\_than\_3\_months}\SpecialCharTok{$}\NormalTok{index))}
+\end{Highlighting}
+\end{Shaded}
+
+Looking again at the last box plot above, we can also see an extreme
+outlier for Canada --- a person who spends roughly \$5,000 per month.
+Let's examine this person in more depth.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Examine the extreme outliers for Canada}
+\NormalTok{canada\_outliers }\OtherTok{=}\NormalTok{ only\_4 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(CountryLive }\SpecialCharTok{==} \StringTok{\textquotesingle{}Canada\textquotesingle{}} \SpecialCharTok{\&} 
+\NormalTok{           money\_per\_month }\SpecialCharTok{\textgreater{}=} \DecValTok{4500} \SpecialCharTok{\&}
+\NormalTok{           MonthsProgramming }\SpecialCharTok{\textless{}=} \DecValTok{3}\NormalTok{)}
+\NormalTok{canada\_outliers}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 138
+##     Age Attend~1 Bootc~2 Bootc~3 Bootc~4 Bootc~5 Child~6 CityP~7 CodeE~8 CodeE~9
+##   <dbl>    <dbl>   <dbl>   <dbl> <chr>     <dbl>   <dbl> <chr>     <dbl>   <dbl>
+## 1    24        1       0       0 Bloc.io       1      NA more t~       1      NA
+## # ... with 128 more variables: CodeEventFCC <dbl>, CodeEventGameJam <dbl>,
+## #   CodeEventGirlDev <dbl>, CodeEventHackathons <dbl>, CodeEventMeetup <dbl>,
+## #   CodeEventNodeSchool <dbl>, CodeEventNone <dbl>, CodeEventOther <chr>,
+## #   CodeEventRailsBridge <dbl>, CodeEventRailsGirls <dbl>,
+## #   CodeEventStartUpWknd <dbl>, CodeEventWkdBootcamps <dbl>,
+## #   CodeEventWomenCode <dbl>, CodeEventWorkshops <dbl>, CommuteTime <chr>,
+## #   CountryCitizen <chr>, CountryLive <chr>, EmploymentField <chr>, ...
+\end{verbatim}
+
+Here, the situation is similar to some of the US respondents --- this
+participant had been programming for no more than two months when he
+completed the survey. He seems to have paid a large sum of money in the
+beginning to enroll in a bootcamp, and then he probably didn't spend
+anything for the next couple of months after the survey. We'll take the
+same approach here as for the US and remove this outlier.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Remove the extreme outliers for Canada}
+\NormalTok{only\_4  }\OtherTok{\textless{}{-}}\NormalTok{  only\_4 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\NormalTok{(index }\SpecialCharTok{\%in\%}\NormalTok{ canada\_outliers}\SpecialCharTok{$}\NormalTok{index))}
+\end{Highlighting}
+\end{Shaded}
+
+Let's recompute the mean values and generate the final box plots.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Mean sum of money spent by students each month}
+\NormalTok{countries\_mean }\OtherTok{\textless{}{-}}\NormalTok{ only\_4 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(CountryLive) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{mean =} \FunctionTok{mean}\NormalTok{(money\_per\_month)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mean))}
+\NormalTok{countries\_mean}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 2
+##   CountryLive               mean
+##   <chr>                    <dbl>
+## 1 United States of America 143. 
+## 2 Canada                    93.1
+## 3 India                     65.8
+## 4 United Kingdom            45.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Box plots to visualize distributions}
+\FunctionTok{ggplot}\NormalTok{( }\AttributeTok{data =}\NormalTok{ only\_4, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ CountryLive, }\AttributeTok{y =}\NormalTok{ money\_per\_month)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Money Spent Per Month Per Country}\SpecialCharTok{\textbackslash{}n}\StringTok{(Distributions)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Country"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Money per month (US dollars)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{BestMarket_files/figure-latex/unnamed-chunk-21-1.pdf}
+\# Choosing the Two Best Markets
+
+Obviously, one country we should advertise in is the US. Lots of new
+coders live there and they are willing to pay a good amount of money
+each month (roughly \$143).
+
+We sell subscriptions at a price of \$59 per month, and Canada seems to
+be the best second choice because people there are willing to pay
+roughly \$93 per month, compared to India (\$66) and the United Kingdom
+(\$45).
+
+The data suggests strongly that we shouldn't advertise in the UK, but
+let's take a second look at India before deciding to choose Canada as
+our second best choice:
+
+\begin{itemize}
+\tightlist
+\item
+  \$59 doesn't seem like an expensive sum for people in India since they
+  spend on average \$66 each month.
+\item
+  We have almost twice as more potential customers in India than we have
+  in Canada:
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Frequency table for the \textquotesingle{}CountryLive\textquotesingle{} column}
+\NormalTok{only\_4 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(CountryLive) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{freq =} \FunctionTok{n}\NormalTok{() }\SpecialCharTok{*} \DecValTok{100} \SpecialCharTok{/} \FunctionTok{nrow}\NormalTok{(only\_4) ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(freq)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 2
+##   CountryLive               freq
+##   <chr>                    <dbl>
+## 1 United States of America 75.0 
+## 2 India                    11.7 
+## 3 United Kingdom            7.16
+## 4 Canada                    6.14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Frequency table to check if we still have enough data}
+\NormalTok{only\_4 }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(CountryLive) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{freq =} \FunctionTok{n}\NormalTok{() ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(freq)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 2
+##   CountryLive               freq
+##   <chr>                    <int>
+## 1 United States of America  2920
+## 2 India                      457
+## 3 United Kingdom             279
+## 4 Canada                     239
+\end{verbatim}
+
+So it's not crystal clear what to choose between Canada and India.
+Although it seems more tempting to choose Canada, there are good chances
+that India might actually be a better choice because of the large number
+of potential customers.
+
+At this point, it seems that we have several options:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Advertise in the US, India, and Canada by splitting the advertisement
+  budget in various combinations:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    60\% for the US, 25\% for India, 15\% for Canada.
+  \item
+    50\% for the US, 30\% for India, 20\% for Canada; etc.
+  \end{itemize}
+\item
+  Advertise only in the US and India, or the US and Canada. Again, it
+  makes sense to split the advertisement budget unequally. For instance:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    70\% for the US, and 30\% for India.
+  \item
+    65\% for the US, and 35\% for Canada; etc.
+  \end{itemize}
+\item
+  Advertise only in the US.
+\end{enumerate}
+
+At this point, it's probably best to send our analysis to the marketing
+team and let them use their domain knowledge to decide. They might want
+to do some extra surveys in India and Canada and then get back to us for
+analyzing the new survey data.
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
+
+In this project, we analyzed survey data from new coders to find the
+best two markets to advertise in. The only solid conclusion we reached
+is that the US would be a good market to advertise in.
+
+For the second best market, it wasn't clear-cut what to choose between
+India and Canada. We decided to send the results to the marketing team
+so they can use their domain knowledge to take the best decision.
+
+\hypertarget{documentation}{%
+\section{Documentation}\label{documentation}}
+
+\end{document}
