@@ -19,11 +19,11 @@ locale: "en-US"
 title: "Esteban Rosal"
 title_separator: "-"
 subtitle: "Connecting the dots of data can reveal the truth behind the illusions of reality."
-name: "Esteban R. Rosal
-description: "A place about Shi Zhiwen and his work."
+name: "Esteban Rosal"
+description: "A place about Esteban Rosal and his work."
 url: "https://errosal.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
-repository: "https://github.com/errosal/errosal.github.io"
+repository: "errosal/errosal.github.io"
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo: # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title: # overrides the website title displayed in the masthead, use " " for no title
@@ -93,7 +93,7 @@ social:
   type: Person # or Organization (defaults to Person)
   name: # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
-    - "https://www.linkedin.com/in/esteban-rosal-837a62wer/"
+    - "www.linkedin.com/in/esteban-rosal-837a62wer"
     - "https://github.com/errosal"
 
 # Analytics
