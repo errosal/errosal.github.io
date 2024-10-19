@@ -2,3 +2,13 @@ body {
     font-family: 'Helvetica', sans-serif;
     font-size: 30px;
 }
+
+.avatar {
+    width: 200px;  /* Adjust the size to your preference */
+    height: 200px;  /* Keep the same height for a square shape */
+    border-radius: 50%;  /* Makes it circular */
+    object-fit: cover;  /* Ensures the image fits the container */
+    margin-right: 20px;  /* Same margin as before to separate text */
+    border: 2px solid #fff;  /* Optional: Adds a white border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Optional shadow */
+  }
