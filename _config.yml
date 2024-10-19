@@ -18,7 +18,7 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 locale: "en-US"
 title: "Esteban Rosal"
 title_separator: "-"
-subtitle: "Connecting the dots of data can reveal the truth behind the illusions of reality."
+subtitle: “Transforming data into clarity, uncovering the hidden patterns that shape reality."
 name: "Esteban Rosal"
 description: "A place about Esteban Rosal and his work."
 url: "https://errosal.github.io"
@@ -107,7 +107,7 @@ analytics:
 author:
   name: "Esteban Rosal"
   avatar: "./assets/images/profile.jpg"
-  bio: “A data analyst who thrives on uncovering hidden patterns and turning complexity into clarity.”
+  bio: “A **Data Analys** who thrives on uncovering hidden patterns and turning complexity into clarity.”
   location: "Hackensack, New Jersey"
   email:
   links:
