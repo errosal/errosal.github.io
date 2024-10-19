@@ -174,7 +174,9 @@ feature_row_ml4:
 
 ---
 
-<small>Welcome to my data science portfolio page where showcases a collection of my projects on Python and R programming, machine learning algorithms, data analysis, and visualization. In this portfolio, I have worked on various datasets ranging from predicting forest fires and heart disease, to building a spam filter and analyzing New York City school data. The goal is to share my passion for data science and how it can be used to solve real-world problems. Each project demonstrates a different aspect of data science and I hope they inspire you to explore the endless possibilities of this field.</small>
+ <p><small>Welcome to my Data Analysis Portfolio! This collection showcases projects using Python with libraries like pandas, NumPy, Seaborn, and Dask for efficient resource management. You'll also find data visualizations in Tableau and Power BI, alongside analyses in Excel and SQL.</small></p>
+
+ <p><small>Each project highlights different aspects of data analytics, from accident analysis to financial modeling, demonstrating how data can solve real-world problems. I hope these projects inspire you to explore the potential of data analysis and visualization.</small></p>
 
 {% include feature_row id="feature_row_ml1" %}
 
@@ -183,134 +185,6 @@ feature_row_ml4:
 {% include feature_row id="feature_row_ml3" %}
 
 {% include feature_row id="feature_row_ml4" %}
-
-## Python
-
-### Machine Learning
-
-[Building A Handwritten Digits Classifier **Deep Learning**](/Python/Handwritten_Digits_Classifier/Handritten_Digits_Classifier.html)
-<sub>*Zhiwen Shi, 2023-04-24*</sub>
-
-[Optimizing Model Prediction: Predict Forest Fires](/Python/Forest_Fires/Forest_Fires.html)
-<sub>*Zhiwen Shi, 2023-04-21*</sub>
-
-[Tree Models: Predicting Employee Productivity](/Python/Employ_Productivity/Employ_Productivity.html)
-<sub>*Zhiwen Shi, 2023-04-15*</sub>
-
-[Logistic Regression Modeling: Classifying Heart Disease](/Python/Heart_Disease/logistic_regression.html)
-<sub>*Zhiwen Shi, 2023-04-10*</sub>
-
-[Stochastic Gradient Descent: Crowdedness in the Gym](/Python/Gradient_Descent/Gradient_Descent.html)
-<sub>*Zhiwen Shi, 2023-04-02*</sub>
-
-[Linear Regression Modeling: Predicting Insurance Costs](/Python/Insurance_Costs/Insurance_Costs.html)
-<sub>*Zhiwen Shi, 2023-03-28*</sub>
-
-[K-Mean Algorithm: Credit Card Customer Segmentation](/Python/Credit_Card_Customer/Credit_Card_Customer.html)
-<sub>*Zhiwen Shi, 2023-03-22*</sub>
-
-[K-Nearest Neighbors Classifier: Predicting Heart Disease](/Python/Heart_Disease/Heart_Disease.html)
-<sub>*Zhiwen Shi, 2023-03-14*</sub>
-
-[Hypothesis Testing: Jeopardy Questions](/Python/Jeopardy_Questions/Jeopard_Questions.html)
-<sub>*Zhiwen Shi, 2023-03-07*</sub>
-
-[Building a Spam Filter with Naive Bayes](/Python/Spam_Filter/Spam_Filter.html)
-<sub>*Zhiwen Shi, 2023-03-02*</sub>
-
-### Public Data Sources
-
-[Finding the Best Two Markets to Advertise In](/Python/Best_Markets/Best_Markets.html)
-<sub>*Zhiwen Shi, 2023-02-27*</sub>
-
-[Storytelling Data Visualization on Exchange Rates](/Python/Exchange_Rates/Exchange_Rates.html)
-<sub>*Zhiwen Shi, 2023-02-22*</sub>
-
-[Popular Data Science Questions](/Python/Popular_DS_Questions/Popular_DS_Questions.html)
-<sub>*Zhiwen Shi, 2023-02-13*</sub>
-
-[Is Fandango Still Inflating Ratings?](/Python/Fandango/Fandango.html)
-<sub>*Zhiwen Shi, 2023-02-05*</sub>
-
-[Analyzing New York City School Data](/Python/NYCschools/NYCschools.html)
-<sub>*Zhiwen Shi, 2023-01-28*</sub>
-
-[Star Wars Survey](/Python/Star_Wars_Survey/Star_Wars_Survey.html)
-<sub>*Zhiwen Shi, 2023-01-23*</sub>
-
-[Answering Business Questions Using **SQL**](/Python/Chinook/Chinook.html)
-<sub>*Zhiwen Shi, 2023-01-15*</sub>
-
-[Analyzing CIA Factbook Data Using **SQL**](/Python/CIA_Factbook/CIA_Factbook.html)
-<sub>*Zhiwen Shi, 2023-01-03*</sub>
-
-[Clean and Analyze Employee Exit Surveys](/Python/Employee_Exit_Survey/Employee_Exit_Survey.html)
-<sub>*Zhiwen Shi, 2022-12-12*</sub>
-
-[Indicators of Heavy Traffic on I-94](/Python/Heavy_Traffic/Indicators_of_Heavy_Traffic.html)
-<sub>*Zhiwen Shi, 2022-12-5*</sub>
-
-[Mobile App for Lottery Addiction](/Python/Lottery/Lottery.html)
-<sub>*Zhiwen Shi, 2022-11-30*</sub>
-
-[eBay Car Sales Data Exploration](/Python/eBay%20Car%20Sales/ebay%20Car%20Sales.html)
-<sub>*Zhiwen Shi, 2022-11-25*</sub>
-
-[Hacker News](/Python/hacker%20news/hacker_news.html)
-<sub>*Zhiwen Shi, 2022-11-20*</sub>
-
-[Prison Break](/Python/Prison%20Break/PrisenBreak.html)
-<sub>*Zhiwen Shi, 2022-11-15*</sub>
-
-[Profitable App Profiles](/Python/Profitable%20App%20Profiles/Profitable%20App%20Profiles.html)
-<sub>*Zhiwen Shi, 2022-11-11*</sub>
-
-## R
-
-[NYC Property Sales](/R/NYC%20Property%20Sales/Linear-Modeling-.html)
-<sub>*Zhiwen Shi, 2022-11-04*</sub>
-
-[Predicting Car Prices](/R/Predicting%20Car%20Prices/Predicting-Car-Prices.html)
-<sub>*Zhiwen Shi, 2022-10-27*</sub>
-
-[Jeopardy](/R/Jeopardy/Jeopardy.html)
-<sub>*Zhiwen Shi, 2022-10-23*</sub>
-
-[BestMarket](/R/BestMarket/BestMarket.html)
-<sub>*Zhiwen Shi, 2022-10-21*</sub>
-
-[Spam](/R/Spam/Spam.html)
-<sub>*Zhiwen Shi, 2022-10-22*</sub>
-
-[Lottery](/R/lottery/649.html)
-<sub>*Zhiwen Shi, 2022-10-22*</sub>
-
-[Fandango Movie Ratings](/R/Fandango_Movie_Ratings/Fandango_Movie_Ratings.html)
-<sub>*Zhiwen Shi, 2022-10-20*</sub>
-
-[Movie Ratings](/R/Movie%20Ratings/MovieRating.html)
-<sub>*Zhiwen Shi, 2022-10-19*</sub>
-
-[NY Solar Resource](/R/NYSolarResouce/NYSolarResouce.html)
-<sub>*Zhiwen Shi, 2022-10-18*</sub>
-
-[Chinook](/R/Chinook/Chinook.html)
-<sub>*Zhiwen Shi, 2022-10-15*</sub>
-
-[NYC schools](/R/NYCschools/NYCschools.html)
-<sub>*Zhiwen Shi, 2022-10-13*</sub>
-
-[Forestfires](/R/forestfires/forestfires.html)
-<sub>*Zhiwen Shi, 2022-10-12*</sub>
-
-[Book reviews](/R/book_reviews/book_review.html)
-<sub>*Zhiwen Shi, 2022-10-11*</sub>
-
-[Book sales data](/R/book_sales_data/Book_sales.html)
-<sub>*Zhiwen Shi, 2022-10-11*</sub>
-
-[COVID19](/R/COVID19/CovidProject.html)
-<sub>*Zhiwen Shi, 2022-10-10*</sub>
 
 ---
 
