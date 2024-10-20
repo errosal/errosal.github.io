@@ -7,7 +7,7 @@ permalink: /about/
 
 <div style="display:flex; flex-direction:row; font-family: 'Georgia', serif;">
   <div style="flex:1;">
-    <img src="/assets/images/about.png" style="float:left; margin-right:20px;">
+    <img src="/assets/images/about.png" style="float:center; margin-right:20px;">
   </div>
   <div style="flex:1; padding-left:20px;">
     <h2>Hi there, my name is Esteban!</h2>
