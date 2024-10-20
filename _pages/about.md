@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-layout: collection
+layout: splash
 permalink: /about/
 ---
 
@@ -9,7 +9,7 @@ permalink: /about/
     <img src="/assets/images/about.png" style="float:left; margin-right:20px;">
   </div>
   <div style="flex:1; padding-left:20px;">
-    <h2>Hi there, my name is Esteban</h2>
+    <h2>Hi there, my name is Esteban R.!</h2>
 
   <small>
       <p>I’m a detail-oriented aspiring Data Analyst with a passion for learning and uncovering insights from complex datasets. My ability to focus on the finer details helps me see patterns and understand the broader context behind specific scenarios.</p>
