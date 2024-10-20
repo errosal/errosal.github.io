@@ -1,7 +1,7 @@
 ---
-title: Portfolio
+title: Portfoli
 author_profile: true
-layout: single
+layout: collection
 permalink: /
 collection: portfolio
 entries_layout: grid
