@@ -3,7 +3,8 @@ title: "About Me"
 layout: splash
 permalink: /about/
 ---
-<div style="display:flex; flex-direction:row; font-family: 'Comic Sans MS', 'Comic Sans', cursive;">
+
+<div style="display:flex; flex-direction:row; font-family: 'Georgia', serif;">
   <div style="flex:1;">
     <img src="/assets/images/about.png" style="float:left; margin-right:20px;">
   </div>
