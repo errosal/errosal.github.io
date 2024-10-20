@@ -1,6 +1,7 @@
 ---
 title: "About Me"
-layout: talk
+author_profile: true
+layout: splash
 permalink: /about/
 ---
 

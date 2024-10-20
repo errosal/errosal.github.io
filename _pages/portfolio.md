@@ -1,5 +1,5 @@
 ---
-title: Portfolio&$
+title: Portfolio
 author_profile: true
 layout: collection
 permalink: /
