@@ -8,7 +8,7 @@ permalink: /about/
   <div style="flex:1;">
     <img src="/assets/images/profile.jpg" class="img-fluid z-depth-1 rounded" style="float:center; margin-right:20px; width400px; height:400px; object-fit:cover;">
   </div>
-  <div style="flex:1; padding-left:20px;">
+  <div style="flex:1; padding-left:5px;">
     <h2>Hi there, my name is Esteban!</h2>
 
   <small>
