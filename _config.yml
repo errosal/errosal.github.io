@@ -16,10 +16,10 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale: "en-US"
-title: "Esteban R."
+title: "Esteban Rosal"
 title_separator: "-"
 subtitle: “Transforming data into clarity, uncovering the hidden patterns that shape reality."
-name: "Esteban Rosal"
+#name: "Esteban Rosal"
 description: "A place about Esteban Rosal and his work."
 url: "https://errosal.github.io"
 baseurl: # the subpath of your site, e.g. "/blog"
