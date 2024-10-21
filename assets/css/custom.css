@@ -4,3 +4,11 @@
     border-radius: 50%; /* Make the avatar circular */
     object-fit: cover;  /* Ensure the image covers the container without distortion */
 }
+
+.u-photo {
+    width: 200px;       /* Set the desired width */
+    height: 200px;      /* Set the desired height */
+    border-radius: 50%; /* Make it circular */
+    object-fit: cover;  /* Ensure the image covers the container without distortion */
+    margin-top: 20px;   /* Add space above the image */
+}
