@@ -106,7 +106,7 @@ analytics:
 # Site Author
 author:
   name: "Esteban Rosal"
-  avatar: "./assets/images/profile.jpg"
+  avatar: "https://avatars.githubusercontent.com/u/118078159?s=400&u=b81f8a05207e829833a99abcd1a64e2f086f6125&v=4"
   bio: “A **Data Analyst** who thrives on uncovering hidden patterns and turning complexity into clarity.”
   location: "Hackensack, New Jersey"
   email:
