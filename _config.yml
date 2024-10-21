@@ -106,7 +106,7 @@ analytics:
 # Site Author
 author:
   name: "Esteban Rosal"
-  avatar: "./assets/images/profile.png"
+  avatar: "./assets/images/profile.jpg"
   bio: “A **Data Analyst** who thrives on uncovering hidden patterns and turning complexity into clarity.”
   location: "Hackensack, New Jersey"
   email:
