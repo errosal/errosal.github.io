@@ -126,6 +126,11 @@
     vertical-align: top;
     width: 36px;
     height: 36px;
+
+    .author__avatar img {
+        margin: auto;
+        display: block;
+    }
   
     @include breakpoint($large) {
       display: block;
