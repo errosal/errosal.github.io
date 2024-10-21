@@ -1,210 +1,193 @@
 ---
 title: "Publications"
-layout: archive
-classes: wide
-sitemap: true
-permalink: /publications/
 author_profile: true
-toc: true
-toc_label: "Category"
-toc_icon: "gear"
+layout: collection
+permalink: /
+collection: portfolio
+entries_layout: grid
+classes: wide
+
+
+feature_row_ml1:
+  - image_path: /assets/images/data_science/handwritten.png
+    alt: "Digits Classifier"
+    title: "<a href='https://clarkszw.github.io/Python/Handwritten_Digits_Classifier/Handritten_Digits_Classifier.html'>Handwritten Digits Classifier</a>"
+    excerpt: >
+        Deep neural networks have been used to reach state-of-the-art performance on image classification tasks in the last decade. We will explore why it is a hard task and observe the limitations of traditional machine learning models for image classification.<br>
+        <br>
+        <a href="https://clarkszw.github.io/Python/Handwritten_Digits_Classifier/Handritten_Digits_Classifier.html">
+        <button class="btn btn--primary btn--small">Python</button>
+        </a><br>
+        <button class="btn btn--info btn--small">Machine Learning</button>
+        <button class="btn btn--info btn--small">Deep Learning</button>
+  - image_path: /assets/images/data_science/forest_fire.png
+    alt: "Predict Forest Fires"
+    title: "<a href='https://clarkszw.github.io/Python/Forest_Fires/Forest_Fires.html'>Predict Forest Fires</a>"
+    excerpt: >
+        Applying a standard linear regression model to predict the extent of fire damage to a forest. Our data comes from the Forest Fires dataset from the UCI Machine Learning Repository.<br>
+        <br>
+        <a href="https://clarkszw.github.io/Python/Forest_Fires/Forest_Fires.html">
+        <button class="btn btn--primary btn--small">Python</button>
+        </a>
+        <a href="/R/forestfires/forestfires.html">
+        <button class="btn btn--primary btn--small">R</button>
+        </a><br>
+        <button class="btn btn--info btn--small">Machine Learning</button>
+        <button class="btn btn--info btn--small">Model Selection</button>
+        <button class="btn btn--info btn--small">Data Cleaning</button>
+        <button class="btn btn--info btn--small">Cross Validation</button>
+  - image_path: https://s3.amazonaws.com/dq-content/755/garment-factory-unsplash.jpg
+    alt: "Predicting Employee Productivity"
+    title: "<a href='https://clarkszw.github.io/Python/Employ_Productivity/Employ_Productivity.html'>Predicting Employee Productivity</a>"
+    excerpt: >
+        Satisfying the huge global demand for garment products is mostly dependent on the production and delivery performance of the employees in the garment manufacturing companies.<br>
+        <br>
+        <a href="https://clarkszw.github.io/Python/Employ_Productivity/Employ_Productivity.html">
+        <button class="btn btn--primary btn--small">Python</button>
+        </a><br>
+        <button class="btn btn--info btn--small">Machine Learning</button>
+        <button class="btn btn--info btn--small">Classifier</button>
+        <button class="btn btn--info btn--small">Desicion Trees</button>
+        <button class="btn btn--info btn--small">Random Forest</button>
+
+feature_row_ml2:
+  - image_path: /assets/images/data_science/heart_disease.png
+    alt: "Classifying Heart Disease"
+    title: "<a href='https://clarkszw.github.io/Python/Heart_Disease/logistic_regression.html'>Classifying Heart Disease</a>"
+    excerpt: >
+        Applying logistic regression model at a real-life dataset: the Heart Disease Data Set from the UCI Machine Learning Repository to predict heart disease, showing how machine learning can help solve problems that have a real impact on people's lives.<br>
+        <br>
+        <a href="https://clarkszw.github.io/Python/Heart_Disease/logistic_regression.html">
+        <button class="btn btn--primary btn--small">Python</button>
+        </a><br>
+        <button class="btn btn--info btn--small">Machine Learning</button>
+        <button class="btn btn--info btn--small">Classifier</button>
+        <button class="btn btn--info btn--small">Logistic Regression</button>
+        <button class="btn btn--info btn--small">Linear Regression</button>
+  - image_path: /assets/images/data_science/gym.png
+    alt: "Crowdedness in the Gym"
+    title: "<a href='https://clarkszw.github.io/Python/Gradient_Descent/Gradient_Descent.html'>Crowdedness in the Gym</a>"
+    excerpt: >
+        Creating a model that can predict how many people will be at the gym at a particular day and time. That way, I will be able to enjoy my excersise routine without waiting times.<br>
+        <br>
+        <a href="https://clarkszw.github.io/Python/Gradient_Descent/Gradient_Descent.html">
+        <button class="btn btn--primary btn--small">Python</button>
+        </a><br>
+        <button class="btn btn--info btn--small">Machine Learning</button>
+        <button class="btn btn--info btn--small">Linear Regression</button>
+        <button class="btn btn--info btn--small">Stochastic Gradient Descent</button>
+  - image_path: /assets/images/data_science/medical.png
+    alt: "Predicting Insurance"
+    title: "<a href='https://clarkszw.github.io/Python/Insurance_Costs/Insurance_Costs.html'>Predicting Insurance</a>"
+    excerpt: >
+        This dataset contains information on individual medical insurance bills, which is associated with some demographic and personal characteristics of the person who received it.<br>
+        <br>
+        <a href="https://clarkszw.github.io/Python/Insurance_Costs/Insurance_Costs.html">
+        <button class="btn btn--primary btn--small">Python</button>
+        </a><br>
+        <button class="btn btn--info btn--small">Machine Learning</button>
+        <button class="btn btn--info btn--small">Linear Regression</button>
+
+feature_row_ml3:
+  - image_path: /assets/images/data_science/credit_card.png
+    alt: "Credit Card Customer Segmentation"
+    title: "<a href='https://clarkszw.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html'>Credit Card Customer Segmentation</a>"
+    excerpt: >
+        Given a dataset containing information about the company’s clients and asked to help segment them into different groups in order to apply different business strategies for each type of customer.<br>
+        <br>
+        <a href="https://clarkszw.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html">
+        <button class="btn btn--primary btn--small">Python</button>
+        </a><br>
+        <button class="btn btn--info btn--small">Machine Learning</button>
+        <button class="btn btn--info btn--small">Clustering</button>
+        <button class="btn btn--info btn--small">K-Mean Algorithm</button>
+  - image_path: /assets/images/data_science/heart.png
+    alt: "Predicting Heart Disease"
+    title: "<a href='https://clarkszw.github.io/Python/Heart_Disease/Heart_Disease.html'>Predicting Heart Disease</a>"
+    excerpt: >
+        Build a K-Nearest Neighbors classifier to accurately predict the likelihood of a patient having a heart disease in the future. It is imperative to identify these risk factors early on to prevent the onset of CVDs and reduce premature deaths.<br>
+        <br>
+        <a href="https://clarkszw.github.io/Python/Heart_Disease/Heart_Disease.html">
+        <button class="btn btn--primary btn--small">Python</button>
+        </a><br>
+        <button class="btn btn--info btn--small">Machine Learning</button>
+        <button class="btn btn--info btn--small">Classifier</button>
+        <button class="btn btn--info btn--small">K-Nearest Neighbors</button>
+  - image_path: /assets/images/data_science/jeopardy.png
+    alt: "Winning Jeopardy"
+    title: "<a href='https://clarkszw.github.io/Python/Jeopardy_Questions/Jeopard_Questions.html'>Winning Jeopardy</a>"
+    excerpt: >
+      Jeopardy is a popular TV show in the US where participants answer questions to win money. I am going to work with a dataset of Jeopardy questions to figure out some patterns in the questions that could help to win.<br>
+      <br>
+      <a href="https://clarkszw.github.io/Python/Jeopardy_Questions/Jeopard_Questions.html">
+        <button class="btn btn--primary btn--small">Python</button>
+      </a>
+      <a href="/R/Jeopardy/Jeopardy.html">
+        <button class="btn btn--primary btn--small">R</button>
+      </a><br>
+        <button class="btn btn--info btn--small">Machine Learning</button>
+        <button class="btn btn--info btn--small">Hypothesis Testing</button>
+
+feature_row_ml4:
+  - image_path: /assets/images/data_science/spam.png
+    alt: "Spam Filter"
+    title: "<a href='https://clarkszw.github.io/Python/Spam_Filter/Spam_Filter.html'>Spam Filter</a>"
+    excerpt: >
+      Build a spam filter for SMS messages using the multinomial Naive Bayes algorithm. Our goal is to write a program that classifies new messages with an accuracy greater than 80%.<br>
+      <br>
+      <a href="https://clarkszw.github.io/Python/Spam_Filter/Spam_Filter.html">
+        <button class="btn btn--primary btn--small">Python</button>
+      </a>
+      <a href="/R/Spam/Spam.html">
+        <button class="btn btn--primary btn--small">R</button>
+      </a><br>
+      <button class="btn btn--info btn--small">Machine Learning</button>
+      <button class="btn btn--info btn--small">Classifier</button>
+      <button class="btn btn--info btn--small">Naive Bayes</button>
+      <button class="btn btn--info btn--small">Model Evaluation</button>
+  - image_path: /assets/images/data_science/marketing.png
+    alt: "Best Markets to Advertise"
+    title: "<a href='https://clarkszw.github.io/Python/Best_Markets/Best_Markets.html'>Best Markets to Advertise</a>"
+    excerpt: >
+      By leveraging relevant data sources and analytical tools, we aim to provide actionable insights to inform the company's advertising decision-making process.<br>
+      <br>
+      <a href="https://clarkszw.github.io/Python/Best_Markets/Best_Markets.html">
+        <button class="btn btn--primary btn--small">Python</button>
+      </a>
+      <a href="/R/BestMarket/BestMarket.html">
+        <button class="btn btn--primary btn--small">R</button>
+      </a><br>
+      <button class="btn btn--info btn--small">Data Cleaning</button>
+      <button class="btn btn--info btn--small">Data Visualization</button>
+      <button class="btn btn--info btn--small">Data-driven Decision-making</button>    
+  - image_path: /assets/images/data_science/exchange.png
+    alt: "Exchange Rates"
+    title: "<a href='https://clarkszw.github.io/Python/Exchange_Rates/Exchange_Rates.html'>Exchange Rates</a>"
+    excerpt: >
+        In this project, we will focus on explanatory data visualization and practice how to use information design principles (familiarity and maximizing the data-ink ratio) to create better graphs for an audience.<br>
+        <br>
+        <a href="https://clarkszw.github.io/Python/Exchange_Rates/Exchange_Rates.html">
+        <button class="btn btn--primary btn--small">Python</button>
+        </a><br>
+        <button class="btn btn--info btn--small">Data Cleaning</button>
+        <button class="btn btn--info btn--small">Data Visualization</button>
+        <button class="btn btn--info btn--small">Information Design Principles</button>
+
 ---
 
-Additional links to my preprints can be found on [arXiv](https://arxiv.org/a/fritz_m_1.html) and [ResearchGate](https://www.researchgate.net/profile/Marvin-Fritz).
-My published work can also be tracked on [Google Scholar](https://scholar.google.com/citations?user=UXscgtgAAAAJ&hl=en).
+ <p><small>Welcome to my Data Analysis Portfolio! This collection showcases projects using Python with libraries like pandas, NumPy, Seaborn, and Dask for efficient resource management. You'll also find data visualizations in Tableau and Power BI, alongside analyses in Excel and SQL.</small></p>
 
-## Preprints
-<img src="/assets/images/acou.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="17">
-<li> <strong> Well-posedness, long-time behavior, and discretization of some models of nonlinear acoustics in velocity-enthalpy formulation </strong> <br> 
-    <em> with H. Egger </em> <br>
-    Submitted (2024) <br>
-  Links: <a href="https://arxiv.org/abs/2409.01067">Preprint</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
+ <p><small>Each project highlights different aspects of data analytics, from accident analysis to financial modeling, demonstrating how data can solve real-world problems. I hope these projects inspire you to explore the potential of data analysis and visualization.</small></p>
 
-<img src="/assets/images/chb.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="16">
-<li> <strong> Structure-preserving approximation of the Cahn-Hilliard-Biot system </strong> <br> 
-    <em> with A. Brunk </em> <br>
-    Submitted (2024) <br>
-  Links: <a href="https://arxiv.org/abs/2407.12349">Preprint</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
+{% include feature_row id="feature_row_ml1" %}
 
-<img src="/assets/images/Stochastic.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="15">
-<li> <strong> Analysis and computations of a stochastic Cahn-Hilliard model for tumor growth with chemotaxis and variable mobility </strong> <br> 
-    <em> with L. Scarpa </em> <br>
-    Submitted (2023) <br>
-  Links: <a href="https://arxiv.org/abs/2312.06288">Preprint</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
+{% include feature_row id="feature_row_ml2" %}
 
-## Peer-Reviewed Scientific Articles
+{% include feature_row id="feature_row_ml3" %}
 
-<img src="/assets/images/biot.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="14">
-<li> <strong> On the well-posedness of the Cahn-Hilliard-Biot model and its applications to tumor growth </strong> <br> 
-    Discrete and Continuous Dynamical Systems - S (2024) <br>
-  Links: <a href="https://arxiv.org/abs/2310.07050">Preprint</a> & <a href="https://doi.org/10.3934/dcdss.2024186">Journal</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
+{% include feature_row id="feature_row_ml4" %}
 
-<img src="/assets/images/Fokker2.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="13">
-<li> <strong> Well-posedness and simulation of weak solutions to  the time-fractional Fokker-Planck equation with general forcing </strong> <br> 
-  Discrete and Continuous Dynamical Systems - B (2024) <br>
-  Links: <a href="https://arxiv.org/abs/2307.16615">Preprint</a> & <a href="https://doi.org/10.3934/dcdsb.2024036">Journal</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
+---
 
-<img src="/assets/images/dilute.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="12">
-<li> <strong> Analysis of a dilute polymer model with a time-fractional derivative </strong> <br> 
-    <em> with E. Süli and B. Wohlmuth </em> <br>
-    SIAM Journal on Mathematical Analysis (2024) <br>
-  Links: <a href="https://arxiv.org/abs/2307.16606">Preprint</a> & <a href="https://doi.org/10.1137/23M1590767">Journal</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
+[Back to Home](/)
 
-
-<img src="/assets/images/lung.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="11">
-<li> <strong> A phase-field model for non-small cell lung cancer under the effects of immunotherapy </strong> <br> 
-  <em> with C. Kuttler, J.T. Oden, P. Schlicke, C.
-Schumann, A. Wagner and B. Wohlmuth </em> <br>
-  Mathematical Biosciences and Engineering (2023) <br>
-  Links: <a href="https://arxiv.org/abs/2303.09378">Preprint</a> & <a href="https://www.aimspress.com/article/doi/10.3934/mbe.2023828">Journal</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/phd.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="10">
-<li> <strong> Tumor evolution models of phase-field type with nonlocal effects and angiogenesis </strong> <br> 
-  Bulletin of Mathematical Biology (2023) <br>
-  Links: <a href="https://arxiv.org/abs/2303.10968">Preprint</a> & <a href="https://doi.org/10.1007/s11538-023-01151-6">Journal</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/equivalence.png" width="200" height="auto" align="left" style="padding-top:15px;padding-right: 30px"/> 
-<ol start="9">
-<li> <strong> Equivalence between a time-fractional and an integer-order gradient flow: The memory effect reflected in the energy </strong> <br> 
-  <em> with U. Khristenko and B. Wohlmuth </em> <br> 
-  Advances in Nonlinear Analysis (2023) <br>
-  Links: <a href="https://arxiv.org/abs/2106.10985">Preprint</a> & <a href="https://doi.org/10.1515/anona-2022-0262">Journal</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/1d0d3d.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="8">
-<li> <strong> A 1D-0D-3D coupled model for simulating blood flow and transport processes in breast tissue</strong>  <br> 
-  <em>with T. Köppl, J.T. Oden, A. Wagner, B. Wohlmuth and C. Wu</em> <br> 
-    International Journal for Numerical Methods in Biomedical Engineering (2022) <br> 
-  Links: <a href="https://arxiv.org/abs/2201.05392">Preprint</a> & <a href="https://doi.org/10.1002/cnm.3612">Journal</a>
-    </li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/timefractional.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="7">
-<li> <strong> Time-fractional Cahn-Hilliard equation: Well-posedness, degeneracy, and numerical solutions</strong>  <br> 
-  <em>with M.L. Rajendran and B. Wohlmuth</em> <br> 
-    Computers & Mathematics with Applications (2022) <br>
-  Links: <a href="https://arxiv.org/abs/2104.03096">Preprint</a> & <a href="https://doi.org/10.1016/j.camwa.2022.01.002">Journal</a>
-  </li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/subdiffusive.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="6">
-<li> <strong> On a subdiffusive tumour growth model with fractional time derivative</strong>  <br> 
-  <em>with C. Kuttler, M.L. Rajendran, L. Scarabosio and B. Wohlmuth</em> <br> 
-    IMA Journal of Applied Mathematics (2021) <br> 
-  Links: <a href="https://arxiv.org/abs/2006.10670">Preprint</a> & <a href="https://doi.org/10.1093/imamat/hxab009">Journal</a>
-</li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/modeling3.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="5">
-<li> <strong> Modeling and simulation of vascular tumors embedded in evolving capillary networks</strong>  <br> 
-  <em>with P.K. Jha, T. Köppl, J.T. Oden, A. Wagner and B. Wohlmuth</em> <br> 
-    Computer Methods in Applied Mechanics and Engineering (2021) <br>
-  Links: <a href="https://arxiv.org/abs/2101.10183">Preprint</a> & <a href="https://doi.org/10.1016/j.cma.2021.113975">Journal</a>
-  </li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/modeling2.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="4">
-<li> <strong> Analysis of a new multispecies tumor growth model coupling 3D phase-fields with a 1D vascular network</strong>  <br> 
-  <em>with P.K. Jha, T. Köppl, J.T. Oden, B. Wohlmuth</em> <br>
-    Nonlinear Analysis: Real World Applications (2020) <br>
-  Links: <a href="https://arxiv.org/abs/2006.10477">Preprint</a> & <a href="https://doi.org/10.1016/j.nonrwa.2021.103331">Journal</a>
-  </li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/tumor.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-bottom:15px;padding-right: 30px;" /> 
-<ol start="3">
-<li> <strong> Local and nonlocal phase-field models of tumor growth and invasion due to ECM degradation</strong>  <br> 
-  <em>with E.A.B.F. Lima, V. Nikolić, J.T. Oden and B. Wohlmuth</em> <br> 
-  Mathematical Models and Methods in Applied Sciences (2019)<br>
-  Links: <a href="https://arxiv.org/abs/1906.07788">Preprint</a> & <a href="https://doi.org/10.1142/S0218202519500519">Journal</a>
-  </li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/dfb.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-<ol start="2">
-<li> <strong> On the unsteady Darcy-Forchheimer-Brinkman equation in local and nonlocal tumor growth models</strong>  <br> 
-  <em>with E.A.B.F. Lima, J.T. Oden and B. Wohlmuth</em> <br> 
-  Mathematical Models and Methods in Applied Sciences (2019)<br>
-  Links: <a href="https://arxiv.org/abs/1812.08872">Preprint</a> & <a href="https://doi.org/10.1142/S0218202519500325">Journal</a>
-  </li> </ol>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/blackstock.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-bottom: 35px; padding-right: 30px;" /> 
-<ol start="1">
-<li> <strong> Well-posedness and numerical treatment of the Blackstock equation in nonlinear acoustics</strong>  <br> 
-  <em>with V. Nikolić and B. Wohlmuth</em> 
-  <br> Mathematical Models and Methods in Applied Sciences (2018) <br>
-  Links: <a href="https://arxiv.org/abs/1806.05227">Preprint</a> & <a href="https://doi.org/10.1016/j.camwa.2022.01.002">Journal</a>
-  </li> </ol>
-
-## Theses
-
-<img src="/assets/images/phd.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-**Well-posedness of nonlocal and mixed-dimensional phase-field models applied to tumor growth** <br> 
-PhD Dissertation, Technical University of Munich (2022) <br> 
-Supervisor: Prof. Dr. Barbara Wohlmuth <br>
-Links: <a href="http://mediatum.ub.tum.de/?id=1633726">MediaTUM</a> 
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/navier.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-**The recent existence proofs of the Navier-Stokes equations** <br> 
-Master's Thesis, Technical University of Munich (2017)  <br>
-Supervisor: Prof. Dr. Hans Wilhelm Alt <br>
-<br clear="left"/>
-<hr />
-
-<img src="/assets/images/vortex.png" width="200" height="auto" alt="" align="left" style="padding-top:15px;padding-right: 30px;" /> 
-**On the stability of relative equilibria in vortex dynamics** <br> 
-Bachelor's Thesis, Technical University of Munich (2015)  <br>
-Supervisor: Prof. Dr. Jürgen Scheurle <br>
-<br clear="left"/>
-
-<!--| <img src="/assets/images/ResearchLCS.png" width="200" height="220" alt="" align="left" style="display:block;margin-bottom:10px;margin-left:auto;margin-right:auto;padding-left: 0px;padding-right: 10px;" /> **Lagrangian coherent structures in three-dimensional steady flows** <br> Bachelor's Thesis, Technical University of Munich (2014) [[link](https://escholarship.mcgill.ca/concern/theses/xk81jq05j)] |
--->
