@@ -1,15 +1,9 @@
 ---
-title: Resume
-author_profile: true
-layout: single
+title: "Resume"
+layout: page
 permalink: /resume/
-classes: wide
 ---
 
 <div style="text-align: center;">
   <embed src="/assets/estebanresume.pdf" width="800px" height="1100px" />
 </div>
-
----
-
-[Back to Home](/)
