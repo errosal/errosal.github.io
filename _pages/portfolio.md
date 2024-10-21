@@ -6,6 +6,9 @@ permalink: /
 collection: portfolio
 entries_layout: grid
 classes: wide
+---
+
+{% include author-profile.html %}
 
 feature_row_ml1:
   - image_path: /assets/images/data_science/handwritten.png
@@ -19,6 +22,7 @@ feature_row_ml1:
         </a><br>
         <button class="btn btn--info btn--small">Machine Learning</button>
         <button class="btn btn--info btn--small">Deep Learning</button>
+
   - image_path: /assets/images/data_science/forest_fire.png
     alt: "Predict Forest Fires"
     title: "<a href='https://clarkszw.github.io/Python/Forest_Fires/Forest_Fires.html'>Predict Forest Fires</a>"
@@ -35,6 +39,7 @@ feature_row_ml1:
         <button class="btn btn--info btn--small">Model Selection</button>
         <button class="btn btn--info btn--small">Data Cleaning</button>
         <button class="btn btn--info btn--small">Cross Validation</button>
+
   - image_path: https://s3.amazonaws.com/dq-content/755/garment-factory-unsplash.jpg
     alt: "Predicting Employee Productivity"
     title: "<a href='https://clarkszw.github.io/Python/Employ_Productivity/Employ_Productivity.html'>Predicting Employee Productivity</a>"
@@ -46,7 +51,7 @@ feature_row_ml1:
         </a><br>
         <button class="btn btn--info btn--small">Machine Learning</button>
         <button class="btn btn--info btn--small">Classifier</button>
-        <button class="btn btn--info btn--small">Desicion Trees</button>
+        <button class="btn btn--info btn--small">Decision Trees</button>
         <button class="btn btn--info btn--small">Random Forest</button>
 
 feature_row_ml2:
@@ -63,11 +68,12 @@ feature_row_ml2:
         <button class="btn btn--info btn--small">Classifier</button>
         <button class="btn btn--info btn--small">Logistic Regression</button>
         <button class="btn btn--info btn--small">Linear Regression</button>
+
   - image_path: /assets/images/data_science/gym.png
     alt: "Crowdedness in the Gym"
     title: "<a href='https://clarkszw.github.io/Python/Gradient_Descent/Gradient_Descent.html'>Crowdedness in the Gym</a>"
     excerpt: >
-        Creating a model that can predict how many people will be at the gym at a particular day and time. That way, I will be able to enjoy my excersise routine without waiting times.<br>
+        Creating a model that can predict how many people will be at the gym at a particular day and time. That way, I will be able to enjoy my exercise routine without waiting times.<br>
         <br>
         <a href="https://clarkszw.github.io/Python/Gradient_Descent/Gradient_Descent.html">
         <button class="btn btn--primary btn--small">Python</button>
@@ -75,6 +81,7 @@ feature_row_ml2:
         <button class="btn btn--info btn--small">Machine Learning</button>
         <button class="btn btn--info btn--small">Linear Regression</button>
         <button class="btn btn--info btn--small">Stochastic Gradient Descent</button>
+
   - image_path: /assets/images/data_science/medical.png
     alt: "Predicting Insurance"
     title: "<a href='https://clarkszw.github.io/Python/Insurance_Costs/Insurance_Costs.html'>Predicting Insurance</a>"
@@ -100,6 +107,7 @@ feature_row_ml3:
         <button class="btn btn--info btn--small">Machine Learning</button>
         <button class="btn btn--info btn--small">Clustering</button>
         <button class="btn btn--info btn--small">K-Mean Algorithm</button>
+
   - image_path: /assets/images/data_science/heart.png
     alt: "Predicting Heart Disease"
     title: "<a href='https://clarkszw.github.io/Python/Heart_Disease/Heart_Disease.html'>Predicting Heart Disease</a>"
@@ -112,6 +120,7 @@ feature_row_ml3:
         <button class="btn btn--info btn--small">Machine Learning</button>
         <button class="btn btn--info btn--small">Classifier</button>
         <button class="btn btn--info btn--small">K-Nearest Neighbors</button>
+
   - image_path: /assets/images/data_science/jeopardy.png
     alt: "Winning Jeopardy"
     title: "<a href='https://clarkszw.github.io/Python/Jeopardy_Questions/Jeopard_Questions.html'>Winning Jeopardy</a>"
@@ -144,6 +153,7 @@ feature_row_ml4:
       <button class="btn btn--info btn--small">Classifier</button>
       <button class="btn btn--info btn--small">Naive Bayes</button>
       <button class="btn btn--info btn--small">Model Evaluation</button>
+
   - image_path: /assets/images/data_science/marketing.png
     alt: "Best Markets to Advertise"
     title: "<a href='https://clarkszw.github.io/Python/Best_Markets/Best_Markets.html'>Best Markets to Advertise</a>"
@@ -159,6 +169,7 @@ feature_row_ml4:
       <button class="btn btn--info btn--small">Data Cleaning</button>
       <button class="btn btn--info btn--small">Data Visualization</button>
       <button class="btn btn--info btn--small">Data-driven Decision-making</button>    
+
   - image_path: /assets/images/data_science/exchange.png
     alt: "Exchange Rates"
     title: "<a href='https://clarkszw.github.io/Python/Exchange_Rates/Exchange_Rates.html'>Exchange Rates</a>"
@@ -174,16 +185,13 @@ feature_row_ml4:
 
 ---
 
- <p><small>Welcome to my Data Analysis Portfolio! This collection showcases projects using Python with libraries like pandas, NumPy, Seaborn, and Dask for efficient resource management. You'll also find data visualizations in Tableau and Power BI, alongside analyses in Excel and SQL.</small></p>
+<p><small>Welcome to my Data Analysis Portfolio! This collection showcases projects using Python with libraries like pandas, NumPy, Seaborn, and Dask for efficient resource management. You'll also find data visualizations in Tableau and Power BI, alongside analyses in Excel and SQL.</small></p>
 
- <p><small>Each project highlights different aspects of data analytics, from accident analysis to financial modeling, demonstrating how data can solve real-world problems. I hope these projects inspire you to explore the potential of data analysis and visualization.</small></p>
+<p><small>Each project highlights different aspects of data analytics, from accident analysis to financial modeling, demonstrating how data can solve real-world problems. I hope these projects inspire you to explore the potential of data analysis and visualization.</small></p>
 
 {% include feature_row id="feature_row_ml1" %}
-
 {% include feature_row id="feature_row_ml2" %}
-
 {% include feature_row id="feature_row_ml3" %}
-
 {% include feature_row id="feature_row_ml4" %}
 
 ---
