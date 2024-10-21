@@ -7,7 +7,7 @@ classes: wide
 ---
 
 <div style="text-align: center;">
-  <embed src="/assets/estebanresume.pdf" width="800px" height="1100px" type="application/pdf" />
+  <embed src="/assets/estebanresume.pdf" width="800px" height="1100px" />
 </div>
 
 ---
