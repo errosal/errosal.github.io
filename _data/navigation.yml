@@ -1,13 +1,14 @@
+# main links links
 main:
-  - title: "Portfolio"
+  - title: "Home" 
     url: /
-  - title: "About"
-    url: /about/
-  # - title: "Tags"
-  #   url: /tags/
-  # - title: "Pages"
-  #   url: /page-archive/
-  # - title: "Collections"
-  #   url: /collection-archive/
-  # - title: "External Link"
-  #   url: https://google.com
+  - title: "Publications"
+    url: /publications/
+  - title: "Events"
+    url: /events/
+  - title: "Teaching"
+    url: /teaching/
+  - title: "CV"
+    url: /cv/
+  - title: "Misc"
+    url: /misc/

@@ -1,28 +1,54 @@
-# My Portfolio Website
+This is the personal webpage of Marvin Fritz.
 
-This is my personal website where I showcase my portfolio and share my projects and experiences with the world. The website is built using [Minimal-Mistakes](https://github.com/mmistakes/minimal-mistakes) template and hosted on GitHub Pages.
+[Webpage](https://fritz-io.github.io/)!
 
-## Getting Started
+### Creator
 
-To access my portfolio website, simply visit https://errosal.github.io in your web browser. This will take you to the homepage where you can browse my portfolio and learn more about me.
+**Michael Rose**
 
-## About Me
+- <https://mademistakes.com>
+- <https://twitter.com/mmistakes>
+- <https://github.com/mmistakes>
 
-I am a creative and passionate individual with a background in data science and chemistry. I have experience working on a variety of projects, from building small websites for local businesses to developing data ETL cloud infrastructure for large corporation.
+### Icons + Demo Images:
 
-## My Portfolio
+- [The Noun Project](https://thenounproject.com) -- Garrett Knoll, Arthur Shlain, and [tracy tam](https://thenounproject.com/tracytam)
+- [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+- [Unsplash](https://unsplash.com/)
 
-My portfolio includes a range of projects that showcase my skills and experience in data science. Some of the projects you will find on my website include:
+### Other:
 
-* Machine Learning
-* Data exploration
-* Data Analysis and Visualization
-* Data ETL desgin
+- [Jekyll](http://jekyllrb.com/)
+- [jQuery](http://jquery.com/)
+- [Susy](http://susy.oddbird.net/)
+- [Breakpoint](http://breakpoint-sass.com/)
+- [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/)
+- [FitVids.JS](http://fitvidsjs.com/)
+- Greedy Navigation - [lukejacksonn](http://codepen.io/lukejacksonn/pen/PwmwWV)
+- [jQuery Smooth Scroll](https://github.com/kswedberg/jquery-smooth-scroll)
 
-Each project includes a detailed description of what I did, the technologies I used, and the challenges I faced. I also include links to the Jupyter Notebook or GitHub repository for each project so that you can view the code and see the project in action.
+---
 
-## Contact Me
+## License
 
-If you have any questions or would like to get in touch with me, you can reach me via email at esteban.rosal.1@gmail.com or through the contact form on my website.
+The MIT License (MIT)
 
-Thank you for visiting my portfolio website, and I look forward to hearing from you!
+Copyright (c) 2017 Michael Rose
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
