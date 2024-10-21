@@ -1,7 +1,7 @@
 ---
 title: "About Me"
 author_profile: true
-layout: splash
+layout: page
 permalink: /about/
 ---
 <div style="display:flex; flex-direction:row; font-family: 'Georgia', serif;">
