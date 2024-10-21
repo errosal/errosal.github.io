@@ -1,12 +1,11 @@
 ---
-title: "Publications"
+title: Portfolio
 author_profile: true
 layout: collection
 permalink: /
 collection: portfolio
 entries_layout: grid
 classes: wide
-
 
 feature_row_ml1:
   - image_path: /assets/images/data_science/handwritten.png
@@ -190,4 +189,3 @@ feature_row_ml4:
 ---
 
 [Back to Home](/)
-
