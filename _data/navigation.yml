@@ -3,6 +3,8 @@ main:
     url: /
   - title: "About"
     url: /about/
+  - title: "Certifications"
+    url: /certifications/
   # - title: "Tags"
   #   url: /tags/
   # - title: "Pages"
