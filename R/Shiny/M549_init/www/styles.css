@@ -1,0 +1,8 @@
+p {
+  color: steelblue;
+  font-size: 16;
+}
+
+nav div {
+  background-color: ivory;
+}rsconnect::deployApp('path/to/your/app')

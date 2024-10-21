@@ -1,0 +1,161 @@
+---
+title: 'Analyzing New York solar data'
+author: "Zhiwen Shi"
+date: "2022-10-18"
+output: html_document
+---
+
+# Introduction
+
+Using APIs gives us access to an incredible amount of data only available online. In this exercise, we want to extract New York City solar data. Such data can, for example, allow us to determine on average the most productive periods of the year for solar panel deployment.
+
+```{r}
+library(tidyverse)
+library(httr)
+library(jsonlite)
+library(ggplot2)
+```
+
+
+## Finding the Suitable Endpoint and Parameters to Query the API
+
+```{r}
+#KEY for DATAGOV
+key <- 'cNTIeRx2hcKoKzn01hb2QxPTwv2hPNQcISsaDOC1'
+base <- "https://developer.nrel.gov"
+endpoint <- 'api/solar/solar_resource/v1.json'
+url <- modify_url(base, path = endpoint)
+
+#The latitude of New York City, NY, USA is 40.730610, and the longitude is -73.935242. 
+parameters_list <- list(lat = 41, lon = -74, api_key = key)
+```
+
+## Extracting the New York Solar Resource Data
+
+```{r}
+response <- GET(url, query = parameters_list)
+
+if (http_error(response)){
+  print('Something went wrong', call. = FALSE)
+}
+
+status_code(response)
+class(response)
+
+content <- content(response, 'text')
+content
+```
+
+## Parsing the JSON into an R Object
+```{r}
+json_list <- fromJSON(content)
+str(json_list)
+```
+
+## Creating a Datarame from a Complex List by taking vectors and building dataframe.
+
+```{r}
+
+output_list <- json_list$outputs
+avg_dni_monthly <- output_list$avg_dni$monthly
+avg_ghi_monthly <- output_list$avg_ghi$monthly
+avg_lat_monthly <- output_list$avg_lat_tilt$monthly
+dataframe <- tibble( 'month' = month.abb, 
+                     'avg_dni' = avg_dni_monthly,
+                     'avg_ghi' = avg_ghi_monthly,
+                     'avg_lat' = avg_lat_monthly)
+dataframe_1_numeric <- dataframe %>%
+  mutate(across(starts_with('avg'), as.numeric))
+
+dataframe_1_numeric
+```
+
+## Creating a Datarame from a Complex List by unlist, restructuring into matrix and converting into dataframe.
+
+```{r}
+u_list <- unlist(json_list$outputs)
+
+u_matrix <- matrix(u_list, nrow=13)
+
+dataframe <- as.data.frame(u_matrix)
+
+dataframe_2 <- dataframe[-1, ] %>%
+# extra work to do compared with the first approach.
+  mutate(month = month.abb)
+#   below line is not needed for this approach.
+#   mutate(across(starts_with('avg'), as.numeric))
+
+dataframe_2
+```
+
+# Putting It All together
+
+Creating the custom `nrel_api_json_get_df()` function for future extracting data from The National Renewable Energy Laboratory (NREL) via API.
+
+```{r}
+library(tibble)
+library(dplyr)
+library(httr)
+library(jsonlite)
+
+
+
+nrel_api_json_get_df <- function(endpoint, queries = list()){
+  url <- modify_url('https://developer.nrel.gov', path = endpoint)
+  response <- GET(url, query = queries)
+  if (http_error(response)){
+    print(status_code(response))
+    stop('Something went wrong..', call. = FALSE)
+  }
+  if (http_type(response)!= 'application/json'){
+    stop('API did not return json', call. = FALSE)
+  }
+  content <- content(response, 'text')
+  raw_data <- fromJSON(content)
+  
+  u_list <- unlist(raw_data$outputs)
+  u_matrix <- matrix(u_list, nrow = 13)
+  data <- as.data.frame(u_matrix)
+  data <- data[-1, ] %>% 
+    mutate(month = month.abb) %>% 
+     select('avg_dni' = 1, 
+            'avg_ghi' = 2, 
+            'avg_lat_tilt' = 3,
+            'month')
+  data <- data[,c(4,1,2,3)]  #reorder coloumn, so month shows first
+  
+  data
+}
+  
+ 
+key <- 'cNTIeRx2hcKoKzn01hb2QxPTwv2hPNQcISsaDOC1'
+parameters_list <- list(lat = 41, lon = -74, api_key = key)
+
+data <- nrel_api_json_get_df('api/solar/solar_resource/v1.json', parameters_list)
+data
+```
+
+# Visualizing New York City Solar Resource Data
+
+The first plot x-axis is ordered alphabetically, while the second is ordered chronologically from January to December. 
+This operation allows ordering the labels in the plot as we wish.
+
+```{r}
+ data %>%
+  ggplot(aes(x = month, y = avg_dni, group = 1)) +
+  geom_line() +
+  geom_point() +
+  theme_bw()
+```
+
+```{r}
+
+ data %>%
+  mutate(month = factor(month, levels = month.abb)) %>% 
+  ggplot(aes(x = month, y = avg_dni, group = 1)) +
+  geom_line() +
+  geom_point() +
+  theme_bw()
+
+```
+
