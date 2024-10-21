@@ -1,7 +1,7 @@
 ---
 title: "Resume"
 author_profile: true 
-layout: page
+layout: collection
 permalink: /resume/
 ---
 
