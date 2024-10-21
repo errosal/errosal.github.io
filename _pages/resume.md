@@ -1,10 +1,8 @@
 ---
 title: Resume
 author_profile: true
-layout: collection
+layout: single
 permalink: /resume/
-collection: portfolio
-entries_layout: grid
 classes: wide
 ---
 
