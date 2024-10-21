@@ -7,8 +7,6 @@ collection: portfolio
 entries_layout: grid
 classes: wide
 
-{ % include author-profile.html %}
-
 feature_row_ml1:
   - image_path: /assets/images/data_science/handwritten.png
     alt: "Digits Classifier"
