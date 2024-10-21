@@ -5,6 +5,8 @@ main:
     url: /about/
   - title: "Certifications"
     url: /certifications/
+  - title: "Resume"
+    url: /resume/
   # - title: "Tags"
   #   url: /tags/
   # - title: "Pages"
