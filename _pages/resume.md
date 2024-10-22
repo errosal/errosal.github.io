@@ -5,5 +5,5 @@ permalink: /resume/
 ---
 
 <div style="text-align: center;">
-  <embed src="/assets/estebanresume.pdf" width="800px" height="1100px" />
+  <embed src="/assets/estebanresume.pdf" width="600px" height="825px" />
 </div>
