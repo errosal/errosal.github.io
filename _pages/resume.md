@@ -1,18 +1,9 @@
 ---
-title: "Resume"
-layout: splash
-author_profile: true
+title: Resume
+layout: page
 permalink: /resume/
 ---
-title: "Certifications"
-author_profile: true
-layout: splash
-permalink: /certifications/
----
-<div style="display:flex; flex-direction:row; font-family: 'Georgia', serif;">
-  <div style="flex:1;">
-    <img src="" class="img-fluid z-depth-1 rounded" style="display: block; margin: 90px auto 0 auto; width: 400px; height: 400px; object-fit: cover;">
-  </div>
-  <div style="flex:1; padding-right:5px;">
-  </div>
+
+<div style="text-align: center;">
+  <embed src="/assets/resume.pdf" width="800px" height="1100px" />
 </div>
