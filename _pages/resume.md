@@ -1,10 +1,10 @@
 ---
 title: "Resume"
 layout: single
-author_profile: true
+author_profile:true
 permalink: /resume/
 ---
 
 <div style="text-align: center;">
-  <embed src="https://drive.google.com/file/d/1Ptbu6mHpX7sXxdcZMeFVm6RYIKdwlDr7/edit" width="600px" height="825px" />
+  <embed src="https://drive.google.com/file/d/1Ptbu6mHpX7sXxdcZMeFVm6RYIKdwlDr7/view?usp=sharing" width="600px" height="825px" />
 </div>
