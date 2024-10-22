@@ -1,7 +1,7 @@
 ---
 title: "Certifications"
 author_profile: true
-layout: splash
+layout: default
 permalink: /certifications/
 ---
 <div style="display:flex; flex-direction:row; font-family: 'Georgia', serif;">
