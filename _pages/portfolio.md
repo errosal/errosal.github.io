@@ -10,7 +10,7 @@ classes: wide
 feature_row_ml1:
   - image_path: /assets/images/data_science/handwritten.png
     alt: "Replace"
-    title: "<a href='https://clarkszw.github.io/Python/Handwritten_Digits_Classifier/Handritten_Digits_Classifier.html'>Handwritten Digits Classifier</a>"
+    title: "<a href='https://clarkszw.github.io/Python/Handwritten_Digits_Classifier/Handritten_Digits_Classifier.html'>Replace</a>"
     excerpt: >
         Deep neural networks have been used to reach state-of-the-art performance on image classification tasks in the last decade. We will explore why it is a hard task and observe the limitations of traditional machine learning models for image classification.<br>
         <br>
@@ -21,7 +21,7 @@ feature_row_ml1:
         <button class="btn btn--info btn--small">Deep Learning</button>
   - image_path: /assets/images/data_science/forest_fire.png
     alt: "Replace"
-    title: "<a href='https://clarkszw.github.io/Python/Forest_Fires/Forest_Fires.html'>Predict Forest Fires</a>"
+    title: "<a href='https://clarkszw.github.io/Python/Forest_Fires/Forest_Fires.html'>Replace</a>"
     excerpt: >
         Applying a standard linear regression model to predict the extent of fire damage to a forest. Our data comes from the Forest Fires dataset from the UCI Machine Learning Repository.<br>
         <br>
@@ -52,7 +52,7 @@ feature_row_ml1:
 feature_row_ml2:
   - image_path: /assets/images/data_science/heart_disease.png
     alt: "Replace"
-    title: "<a href='https://clarkszw.github.io/Python/Heart_Disease/logistic_regression.html'>Classifying Heart Disease</a>"
+    title: "<a href='https://clarkszw.github.io/Python/Heart_Disease/logistic_regression.html'>Replace</a>"
     excerpt: >
         Applying logistic regression model at a real-life dataset: the Heart Disease Data Set from the UCI Machine Learning Repository to predict heart disease, showing how machine learning can help solve problems that have a real impact on people's lives.<br>
         <br>
@@ -77,7 +77,7 @@ feature_row_ml2:
         <button class="btn btn--info btn--small">Stochastic Gradient Descent</button>
   - image_path: /assets/images/data_science/medical.png
     alt: "Replace"
-    title: "<a href='https://clarkszw.github.io/Python/Insurance_Costs/Insurance_Costs.html'>Predicting Insurance</a>"
+    title: "<a href='https://clarkszw.github.io/Python/Insurance_Costs/Insurance_Costs.html'>Replace</a>"
     excerpt: >
         This dataset contains information on individual medical insurance bills, which is associated with some demographic and personal characteristics of the person who received it.<br>
         <br>
