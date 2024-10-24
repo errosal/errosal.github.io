@@ -8,13 +8,13 @@ entries_layout: grid
 classes: wide
 
 feature_row_ml1:
-  - image_path: /assets/images/data_science/handwritten.png
+  - image_path: /assets/images/data_science/usaaccidents.jpg
     alt: "Replace"
-    title: "<a href='https://clarkszw.github.io/Python/Handwritten_Digits_Classifier/Handritten_Digits_Classifier.html'>Replace</a>"
+    title: "<a href='https://errosal.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html'>Replace</a>"
     excerpt: >
-        Deep neural networks have been used to reach state-of-the-art performance on image classification tasks in the last decade. We will explore why it is a hard task and observe the limitations of traditional machine learning models for image classification.<br>
+        This project analyzes large-scale traffic accident data to identify key trends and patterns. By exploring factors like weather, road conditions, and severity, we aim to understand accident dynamics and examine how advanced techniques can enhance predictions for road safety.<br>
         <br>
-        <a href="https://clarkszw.github.io/Python/Handwritten_Digits_Classifier/Handritten_Digits_Classifier.html">
+        <a href="https://errosal.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html">
         <button class="btn btn--primary btn--small">Python</button>
         </a><br>
         <button class="btn btn--info btn--small">Machine Learning</button>
