@@ -9,7 +9,7 @@ classes: wide
 
 feature_row_ml1:
   - image_path: /assets/images/data_science/handwritten.png
-    alt: "Digits Classifier"
+    alt: "Replace"
     title: "<a href='https://clarkszw.github.io/Python/Handwritten_Digits_Classifier/Handritten_Digits_Classifier.html'>Handwritten Digits Classifier</a>"
     excerpt: >
         Deep neural networks have been used to reach state-of-the-art performance on image classification tasks in the last decade. We will explore why it is a hard task and observe the limitations of traditional machine learning models for image classification.<br>
@@ -20,7 +20,7 @@ feature_row_ml1:
         <button class="btn btn--info btn--small">Machine Learning</button>
         <button class="btn btn--info btn--small">Deep Learning</button>
   - image_path: /assets/images/data_science/forest_fire.png
-    alt: "Predict Forest Fires"
+    alt: "Replace"
     title: "<a href='https://clarkszw.github.io/Python/Forest_Fires/Forest_Fires.html'>Predict Forest Fires</a>"
     excerpt: >
         Applying a standard linear regression model to predict the extent of fire damage to a forest. Our data comes from the Forest Fires dataset from the UCI Machine Learning Repository.<br>
@@ -51,7 +51,7 @@ feature_row_ml1:
 
 feature_row_ml2:
   - image_path: /assets/images/data_science/heart_disease.png
-    alt: "Classifying Heart Disease"
+    alt: "Replace"
     title: "<a href='https://clarkszw.github.io/Python/Heart_Disease/logistic_regression.html'>Classifying Heart Disease</a>"
     excerpt: >
         Applying logistic regression model at a real-life dataset: the Heart Disease Data Set from the UCI Machine Learning Repository to predict heart disease, showing how machine learning can help solve problems that have a real impact on people's lives.<br>
@@ -76,7 +76,7 @@ feature_row_ml2:
         <button class="btn btn--info btn--small">Linear Regression</button>
         <button class="btn btn--info btn--small">Stochastic Gradient Descent</button>
   - image_path: /assets/images/data_science/medical.png
-    alt: "Predicting Insurance"
+    alt: "Replace"
     title: "<a href='https://clarkszw.github.io/Python/Insurance_Costs/Insurance_Costs.html'>Predicting Insurance</a>"
     excerpt: >
         This dataset contains information on individual medical insurance bills, which is associated with some demographic and personal characteristics of the person who received it.<br>
@@ -87,31 +87,8 @@ feature_row_ml2:
         <button class="btn btn--info btn--small">Machine Learning</button>
         <button class="btn btn--info btn--small">Linear Regression</button>
 
+
 feature_row_ml3:
-  - image_path: /assets/images/data_science/credit_card.png
-    alt: "Credit Card Customer Segmentation"
-    title: "<a href='https://clarkszw.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html'>Credit Card Customer Segmentation</a>"
-    excerpt: >
-        Given a dataset containing information about the company’s clients and asked to help segment them into different groups in order to apply different business strategies for each type of customer.<br>
-        <br>
-        <a href="https://clarkszw.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html">
-        <button class="btn btn--primary btn--small">Python</button>
-        </a><br>
-        <button class="btn btn--info btn--small">Machine Learning</button>
-        <button class="btn btn--info btn--small">Clustering</button>
-        <button class="btn btn--info btn--small">K-Mean Algorithm</button>
-  - image_path: /assets/images/data_science/heart.png
-    alt: "Predicting Heart Disease"
-    title: "<a href='https://clarkszw.github.io/Python/Heart_Disease/Heart_Disease.html'>Predicting Heart Disease</a>"
-    excerpt: >
-        Build a K-Nearest Neighbors classifier to accurately predict the likelihood of a patient having a heart disease in the future. It is imperative to identify these risk factors early on to prevent the onset of CVDs and reduce premature deaths.<br>
-        <br>
-        <a href="https://clarkszw.github.io/Python/Heart_Disease/Heart_Disease.html">
-        <button class="btn btn--primary btn--small">Python</button>
-        </a><br>
-        <button class="btn btn--info btn--small">Machine Learning</button>
-        <button class="btn btn--info btn--small">Classifier</button>
-        <button class="btn btn--info btn--small">K-Nearest Neighbors</button>
   - image_path: /assets/images/data_science/jeopardy.png
     alt: "Winning Jeopardy"
     title: "<a href='https://clarkszw.github.io/Python/Jeopardy_Questions/Jeopard_Questions.html'>Winning Jeopardy</a>"
@@ -126,24 +103,6 @@ feature_row_ml3:
       </a><br>
         <button class="btn btn--info btn--small">Machine Learning</button>
         <button class="btn btn--info btn--small">Hypothesis Testing</button>
-
-feature_row_ml4:
-  - image_path: /assets/images/data_science/spam.png
-    alt: "Spam Filter"
-    title: "<a href='https://clarkszw.github.io/Python/Spam_Filter/Spam_Filter.html'>Spam Filter</a>"
-    excerpt: >
-      Build a spam filter for SMS messages using the multinomial Naive Bayes algorithm. Our goal is to write a program that classifies new messages with an accuracy greater than 80%.<br>
-      <br>
-      <a href="https://clarkszw.github.io/Python/Spam_Filter/Spam_Filter.html">
-        <button class="btn btn--primary btn--small">Python</button>
-      </a>
-      <a href="/R/Spam/Spam.html">
-        <button class="btn btn--primary btn--small">R</button>
-      </a><br>
-      <button class="btn btn--info btn--small">Machine Learning</button>
-      <button class="btn btn--info btn--small">Classifier</button>
-      <button class="btn btn--info btn--small">Naive Bayes</button>
-      <button class="btn btn--info btn--small">Model Evaluation</button>
   - image_path: /assets/images/data_science/marketing.png
     alt: "Best Markets to Advertise"
     title: "<a href='https://clarkszw.github.io/Python/Best_Markets/Best_Markets.html'>Best Markets to Advertise</a>"
