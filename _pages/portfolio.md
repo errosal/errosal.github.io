@@ -8,9 +8,9 @@ entries_layout: grid
 classes: wide
 
 feature_row_ml1:
-  - image_path: /assets/images/data_science/usaaccidents.jpg
-    alt: "Replace"
-    title: "<a href='https://errosal.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html'>Replace</a>"
+  - image_path: /assets/images/data_science/usaccidents.jpg
+    alt: "US Traffic Accidents"
+    title: "<a href='https://errosal.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html'>US Traffic Accidents Analysis</a>"
     excerpt: >
         This project analyzes large-scale traffic accident data to identify key trends and patterns. By exploring factors like weather, road conditions, and severity, we aim to understand accident dynamics and examine how advanced techniques can enhance predictions for road safety.<br>
         <br>
