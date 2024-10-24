@@ -10,11 +10,11 @@ classes: wide
 feature_row_ml1:
   - image_path: /assets/images/data_science/usaccidents.jpg
     alt: "US Traffic Accidents"
-    title: "<a href='https://errosal.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html'>US Traffic Accidents Analysis</a>"
+    title: "<a href='https://errosal.github.io/Python/US_Traffic_Accidents/US_Traffic_Accidents_Analysis_General_Statistics.html'>US Traffic Accidents Analysis</a>"
     excerpt: >
         This project analyzes large-scale traffic accident data to identify key trends and patterns. By exploring factors like weather, road conditions, and severity, we aim to understand accident dynamics and examine how advanced techniques can enhance predictions for road safety.<br>
         <br>
-        <a href="https://errosal.github.io/Python/Credit_Card_Customer/Credit_Card_Customer.html">
+        <a href="https://errosal.github.io/Python/US_Traffic_Accidents/US_Traffic_Accidents_Analysis_General_Statistics.html">
         <button class="btn btn--primary btn--small">Python</button>
         </a><br>
         <button class="btn btn--info btn--small">Machine Learning</button>
