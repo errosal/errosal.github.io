@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Tableau Dashboard with Code Block</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Tableau JS API Library -->
+    <script
+      type="text/javascript"
+      src="https://public.tableau.com/javascripts/api/tableau-2.min.js"
+    ></script>
+  </head>
+  <body style="font-family: 'Times New Roman', Times, serif;">
+    
+    <!-- Dashboard Heading -->
+    <h2 class="dashboard-title">Tableau Live Dashboard</h2>
+
+    <!-- Tableau Dashboard Section -->
+    <div id="vizContainer"></div>
+
+    <script src="app.js"></script>
+
+    <!-- Separator -->
+    <hr style="border: 1px solid #ccc; margin: 40px 0;" />
+
+    <!-- Explanation Paragraph -->
+    <p style="text-align: left; font-size: 16px; max-width: 800px; margin: auto; line-height: 1.6;">
+      Before creating this dashboard, I went through a careful process of cleaning and organizing the data. This included identifying and addressing missing values, removing errors, and standardizing the dataset for better analysis. After refining the data and ensuring consistency, I exported it to Excel for further work, which allowed me to build a clear and accurate dashboard.
+    </p>
+
+    <!-- Jupyter Notebook Section -->
+    <div class="notebook-section">
+      <!-- Include the Jupyter notebook HTML content -->
+      <iframe src="london_bikes.html" width="100%" height="800px" style="border:none;"></iframe>
+    </div>
+
+  </body>
+</html>
