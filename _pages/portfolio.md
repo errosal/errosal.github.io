@@ -19,20 +19,17 @@ feature_row_ml1:
         </a><br>
         <button class="btn btn--info btn--small">Machine Learning</button>
         <button class="btn btn--info btn--small">Deep Learning</button>
-  - image_path: /assets/images/data_science/forest_fire.png
-    alt: "Replace"
-    title: "<a href='https://clarkszw.github.io/Python/Forest_Fires/Forest_Fires.html'>Replace</a>"
+  - image_path: /assets/images/data_science/set-bikes-outdoors.jpg
+    alt: "London Bike Rides"
+    title: "<a href='https://errosal.github.io/Python/London_Bikes/index.html'>London Bike Rides</a>"
     excerpt: >
         Applying a standard linear regression model to predict the extent of fire damage to a forest. Our data comes from the Forest Fires dataset from the UCI Machine Learning Repository.<br>
         <br>
-        <a href="https://clarkszw.github.io/Python/Forest_Fires/Forest_Fires.html">
-        <button class="btn btn--primary btn--small">Python</button>
-        </a>
-        <a href="/R/forestfires/forestfires.html">
-        <button class="btn btn--primary btn--small">R</button>
+        <a href="https://errosal.github.io/Python/London_Bikes/index.html">
+        <button class="btn btn--primary btn--small">Tableau</button>
         </a><br>
-        <button class="btn btn--info btn--small">Machine Learning</button>
-        <button class="btn btn--info btn--small">Model Selection</button>
+        <button class="btn btn--info btn--small">Python</button>
+        <button class="btn btn--info btn--small">Excel</button>
         <button class="btn btn--info btn--small">Data Cleaning</button>
         <button class="btn btn--info btn--small">Cross Validation</button>
   - image_path: https://s3.amazonaws.com/dq-content/755/garment-factory-unsplash.jpg
