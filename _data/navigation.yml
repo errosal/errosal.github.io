@@ -1,0 +1,13 @@
+main:
+  - title: "Portfolio"
+    url: /
+  - title: "Resume | Certificates"
+    url: /resume/
+  # - title: "Tags"
+  #   url: /tags/
+  # - title: "Pages"
+  #   url: /page-archive/
+  # - title: "Collections"
+  #   url: /collection-archive/
+  # - title: "External Link"
+  #   url: https://google.com

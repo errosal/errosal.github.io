@@ -1,0 +1,72 @@
+/* General Body Styling */
+body {
+  font-family: 'Times New Roman', serif;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+/* Text Section Styling */
+.code-section {
+  font-family: 'Times New Roman', serif; /* Change the font */
+  background-color: #ffffff; /* White background for the text section */
+  color: #333; /* Dark text color */
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+}
+
+.code-section a {
+  font-family: 'Times New Roman', serif; /* Change the font */
+  color: #0066cc; /* Blue for links */
+  text-decoration: none;
+}
+
+.code-section a:hover {
+  text-decoration: underline;
+}
+
+/* Code Block Styling */
+.code-block {
+  background-color: #1e1e1e; /* Black background for code block */
+  color: #dcdcdc; /* Light gray text */
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  margin: 0;
+}
+
+.code-block code {
+  font-family: Consolas, "Courier New", Courier, monospace; /* Code should remain a monospaced font */
+}
+
+/* Dashboard Heading Styling */
+.dashboard-title {
+  font-family: 'Times New Roman', serif; /* Change the font */
+  text-align: center;
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Make the dashboard responsive */
+#vizContainer {
+  width: 100%; /* Full width */
+  height: 80vh; /* 80% of the viewport height */
+  max-width: 100%; /* Ensure it doesn't overflow on larger screens */
+  margin: auto;
+  transform: scale(0.75); /* Scale down to 75% */
+  transform-origin: top left; /* Ensure scaling starts from the top-left corner */
+}
+
+/* Smaller screens (like mobile) */
+@media (max-width: 500px) {
+  #vizContainer {
+    height: 100vh; /* Full height for mobile screens */
+    transform: scale(0.5); /* Scale down to 50% for mobile */
+  }
+}
