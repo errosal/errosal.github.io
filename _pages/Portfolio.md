@@ -83,7 +83,7 @@ feature_row_ml2:
         <button class="btn btn--info btn--small">Data-driven Decision-making</button>
 
 feature_row_ml3:
-  - image_path: /assets/images/data_science/gym.png
+  - image_path: /assets/images/data_science/yakirabella.png
     alt: "Clothing Brand Sales"
     title: "<a href='https://errosal.github.io/Python/Yakira_Bella/YakiraBella.html' style='font-family: Times New Roman, serif;'>Clothing Brand Sales</a>"
     excerpt: >
