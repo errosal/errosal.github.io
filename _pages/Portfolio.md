@@ -84,12 +84,12 @@ feature_row_ml2:
 
 feature_row_ml3:
   - image_path: /assets/images/data_science/gym.png
-    alt: "Crowdedness in the Gym"
-    title: "<a href='https://errosal.github.io/Python/Gradient_Descent/Gradient_Descent.html' style='font-family: Times New Roman, serif;'>Crowdedness in the Gym</a>"
+    alt: "Clothing Brand Sales"
+    title: "<a href='https://errosal.github.io/Python/Yakira_Bella/YakiraBella.html' style='font-family: Times New Roman, serif;'>Clothing Brand Sales</a>"
     excerpt: >
-        Creating a model that can predict how many people will be at the gym on a particular day and time, helping users avoid waiting times.<br>
+        Analyzed sales data for a clothing brand to uncover trends, seasonality, and customer preferences. Built visualizations and identified key revenue drivers, helping inform inventory decisions and marketing strategies.<br>
         <br>
-        <a href="https://errosal.github.io/Python/Gradient_Descent/Gradient_Descent.html">
+        <a href="https://errosal.github.io/Python/Yakira_Bella/YakiraBella.html">
         <button class="btn btn--primary btn--small">Python</button>
         </a><br>
         <button class="btn btn--info btn--small">Machine Learning</button>
